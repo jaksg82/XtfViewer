@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Package xmlns="http://schemas.microsoft.com/appx/2010/manifest" xmlns:m2="http://schemas.microsoft.com/appx/2013/manifest" xmlns:m3="http://schemas.microsoft.com/appx/2014/manifest" xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest">
+  <Identity Name="54515SimoneGiacomoni.XtfViewer" Publisher="CN=CDF328CE-D36E-41AD-B084-27073BB76BD9" Version="1.1.0.0" />
+  <mp:PhoneIdentity PhoneProductId="e1ca719b-a98a-432e-a9c7-3abf88f59db6" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
+  <Properties>
+    <DisplayName>Xtf Viewer</DisplayName>
+    <PublisherDisplayName>Simone Giacomoni</PublisherDisplayName>
+    <Logo>Assets\LogoStore.png</Logo>
+  </Properties>
+  <Prerequisites>
+    <OSMinVersion>6.3.1</OSMinVersion>
+    <OSMaxVersionTested>6.3.1</OSMaxVersionTested>
+  </Prerequisites>
+  <Resources>
+    <Resource Language="x-generate" />
+  </Resources>
+  <Applications>
+    <Application Id="App" Executable="$targetnametoken$.exe" EntryPoint="XtfViewer_Phone8.App">
+      <m3:VisualElements DisplayName="Xtf Viewer" Square150x150Logo="Assets\LogoSquare150x150.png" Square44x44Logo="Assets\LogoSquare44x44.png" Description="XtfViewer for Windows Phone 8" ForegroundText="light" BackgroundColor="transparent" ToastCapable="false">
+        <m3:LockScreen Notification="badge" BadgeLogo="Assets\LogoBadge.png" />
+        <m3:DefaultTile Wide310x150Logo="Assets\LogoWide310x150.png" Square71x71Logo="Assets\LogoSquare71x71.png">
+        </m3:DefaultTile>
+        <m3:SplashScreen Image="Assets\LogoSplash.png" BackgroundColor="transparent" />
+        <m3:InitialRotationPreference>
+          <m3:Rotation Preference="portrait" />
+        </m3:InitialRotationPreference>
+      </m3:VisualElements>
+      <Extensions>
+        <Extension Category="windows.fileTypeAssociation">
+          <FileTypeAssociation Name="xtf">
+            <DisplayName>eXtended Triton Format</DisplayName>
+            <Logo>Assets\LogoSquare44x44.png</Logo>
+            <InfoTip>eXtended Triton Format</InfoTip>
+            <SupportedFileTypes>
+              <FileType>.xtf</FileType>
+            </SupportedFileTypes>
+          </FileTypeAssociation>
+        </Extension>
+      </Extensions>
+    </Application>
+  </Applications>
+  <Capabilities>
+    <Capability Name="removableStorage" />
+  </Capabilities>
+</Package>

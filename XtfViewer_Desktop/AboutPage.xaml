@@ -1,0 +1,20 @@
+﻿<Page x:Class="AboutPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:XtfViewer_Desktop"
+      mc:Ignorable="d" 
+      d:DesignHeight="300" d:DesignWidth="300"
+      Title="AboutPage">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="5*"/>
+        </Grid.RowDefinitions>
+        <TextBlock x:Name="AboutTitle" TextWrapping="Wrap" Text="AboutTitle" FontSize="{DynamicResource {x:Static SystemFonts.MenuFontSizeKey}}" Margin="5"/>
+        <TextBlock x:Name="AboutText" Margin="5" Grid.Row="1" TextWrapping="Wrap" Text="AboutText" 
+                   FontSize="{DynamicResource {x:Static SystemFonts.MenuFontSizeKey}}" ScrollViewer.CanContentScroll="True" UseLayoutRounding="True" />
+
+    </Grid>
+</Page>

@@ -1,0 +1,16 @@
+﻿<Application
+    x:Class="XtfViewer_Phone8.App"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:XtfViewer_Phone8">
+
+
+    <Application.Resources>
+
+        <ResourceDictionary>
+            <x:String x:Key="AppTitle">XTF Viewer 8</x:String>
+            <x:String x:Key="WebLink">http://www.vivoscuola.it/us/simone.giacomoni/devtools/</x:String>
+        </ResourceDictionary>
+
+    </Application.Resources>
+</Application>

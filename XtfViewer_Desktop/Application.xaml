@@ -1,0 +1,36 @@
+﻿<Application x:Class="Application"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:System="clr-namespace:System;assembly=mscorlib"
+    StartupUri="MainWindow.xaml">
+    
+    <Application.Resources>
+        <System:String x:Key="AppTitle">Xtf Viewer</System:String>
+        
+        <Style x:Key="TextTitle" TargetType="TextBlock" >
+            <Setter Property="FontFamily" Value="{DynamicResource {x:Static SystemFonts.MenuFontFamilyKey}}"/>
+            <Setter Property="FontSize" Value="{DynamicResource {x:Static SystemFonts.MenuFontSizeKey}}"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="TextWrapping" Value="NoWrap"/>
+        </Style>
+        <Style x:Key="TextDescription" TargetType="TextBlock" >
+            <Setter Property="FontFamily" Value="{DynamicResource {x:Static SystemFonts.MenuFontFamilyKey}}"/>
+            <Setter Property="FontSize" Value="{DynamicResource {x:Static SystemFonts.MenuFontSizeKey}}"/>
+            <Setter Property="FontWeight" Value="Normal"/>
+            <Setter Property="TextWrapping" Value="NoWrap"/>
+        </Style>
+        <DataTemplate x:Key="StandardStringItemTemplate">
+            <StackPanel Margin="5">
+                <TextBlock Text="{Binding Title}" Style="{DynamicResource TextTitle}" />
+                <TextBlock Text="{Binding Description}" Style="{DynamicResource TextDescription}" />
+            </StackPanel>
+        </DataTemplate>
+        <DataTemplate x:Key="ListBoxItemDataTemplate">
+            <StackPanel Margin="5" Orientation="Horizontal">
+                <TextBlock Text="{Binding Title}" Style="{DynamicResource TextTitle}" Margin="3"/>
+                <TextBlock Text="{Binding Description}" Style="{DynamicResource TextDescription}" Margin="3"/>
+            </StackPanel>
+        </DataTemplate>
+
+    </Application.Resources>
+</Application>

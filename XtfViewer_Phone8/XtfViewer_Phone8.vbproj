@@ -1,0 +1,244 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{DF7B52EB-8E62-490D-9E95-04FA2A20D77B}</ProjectGuid>
+    <OutputType>AppContainerExe</OutputType>
+    <RootNamespace>XtfViewer_Phone8</RootNamespace>
+    <AssemblyName>XtfViewer_Phone8</AssemblyName>
+    <DefaultLanguage>en</DefaultLanguage>
+    <TargetPlatformVersion>8.1</TargetPlatformVersion>
+    <MinimumVisualStudioVersion>12</MinimumVisualStudioVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{76F1466A-8B6D-4E39-A767-685A06062A39};{F184B08F-C81C-45F6-A57F-5ABD9991F28F}</ProjectTypeGuids>
+    <AppxBundle>Always</AppxBundle>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>NETFX_CORE,WINDOWS_PHONE_APP</DefineConstants>
+    <DocumentationFile>XtfViewer_Phone8.xml</DocumentationFile>
+    <NoWarn>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036,42314</NoWarn>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>NETFX_CORE,WINDOWS_PHONE_APP</DefineConstants>
+    <DocumentationFile>XtfViewer_Phone8.xml</DocumentationFile>
+    <NoWarn>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036,42314</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|ARM'">
+    <DebugSymbols>true</DebugSymbols>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\ARM\Debug\</OutputPath>
+    <DefineConstants>NETFX_CORE,WINDOWS_PHONE_APP</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>ARM</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <Prefer32Bit>true</Prefer32Bit>
+    <DocumentationFile>XtfViewer_Phone8.xml</DocumentationFile>
+    <NoWarn>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036,42314</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|ARM'">
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\ARM\Release\</OutputPath>
+    <DefineConstants>NETFX_CORE,WINDOWS_PHONE_APP</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>ARM</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <Prefer32Bit>true</Prefer32Bit>
+    <DocumentationFile>XtfViewer_Phone8.xml</DocumentationFile>
+    <NoWarn>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036,42314</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>NETFX_CORE,WINDOWS_PHONE_APP</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <Prefer32Bit>true</Prefer32Bit>
+    <DocumentationFile>XtfViewer_Phone8.xml</DocumentationFile>
+    <NoWarn>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036,42314</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>NETFX_CORE,WINDOWS_PHONE_APP</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <Prefer32Bit>true</Prefer32Bit>
+    <DocumentationFile>XtfViewer_Phone8.xml</DocumentationFile>
+    <NoWarn>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036,42314</NoWarn>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="AboutPage.xaml.vb">
+      <DependentUpon>AboutPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="App.xaml.vb">
+      <DependentUpon>App.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Common\ExtensionMethod.vb" />
+    <Compile Include="Common\NavigationHelper.vb" />
+    <Compile Include="Common\ObservableDictionary.vb" />
+    <Compile Include="Common\RelayCommand.vb" />
+    <Compile Include="Common\SuspensionManager.vb" />
+    <Compile Include="HubPage.xaml.vb">
+      <DependentUpon>HubPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\AssemblyInfo.vb" />
+  </ItemGroup>
+  <ItemGroup>
+    <AppxManifest Include="Package.appxmanifest">
+      <SubType>Designer</SubType>
+    </AppxManifest>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Assets\LogoBadge.scale-100.png" />
+    <Content Include="Assets\LogoBadge.scale-140.png" />
+    <Content Include="Assets\LogoBadge.scale-240.png" />
+    <Content Include="Assets\LogoSplash.scale-100.png" />
+    <Content Include="Assets\LogoSplash.scale-140.png" />
+    <Content Include="Assets\LogoSplash.scale-240.png" />
+    <Content Include="Assets\LogoSquare150x150.scale-100.png" />
+    <Content Include="Assets\LogoSquare150x150.scale-140.png" />
+    <Content Include="Assets\LogoSquare150x150.scale-240.png" />
+    <Content Include="Assets\LogoSquare44x44.scale-100.png" />
+    <Content Include="Assets\LogoSquare44x44.scale-140.png" />
+    <Content Include="Assets\LogoSquare44x44.scale-240.png" />
+    <Content Include="Assets\LogoSquare71x71.scale-100.png" />
+    <Content Include="Assets\LogoSquare71x71.scale-140.png" />
+    <Content Include="Assets\LogoSquare71x71.scale-240.png" />
+    <Content Include="Assets\LogoStore.scale-100.png" />
+    <Content Include="Assets\LogoStore.scale-140.png" />
+    <Content Include="Assets\LogoStore.scale-240.png" />
+    <Content Include="Assets\LogoWide310x150.scale-100.png" />
+    <Content Include="Assets\LogoWide310x150.scale-140.png" />
+    <Content Include="Assets\LogoWide310x150.scale-240.png" />
+    <Content Include="Common\ReadMe.txt" />
+    <CodeAnalysisDictionary Include="CustomDictionary.xml" />
+    <None Include="Package.StoreAssociation.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Collections.ObjectModel" />
+    <Import Include="System.ComponentModel" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.IO" />
+    <Import Include="System.Linq" />
+    <Import Include="System.Runtime.CompilerServices" />
+    <Import Include="System.Threading.Tasks" />
+    <Import Include="System.Windows.Input" />
+    <Import Include="System.Xml.Linq" />
+    <Import Include="Windows.ApplicationModel" />
+    <Import Include="Windows.ApplicationModel.Activation" />
+    <Import Include="Windows.ApplicationModel.Resources" />
+    <Import Include="Windows.Data.Json" />
+    <Import Include="Windows.Foundation" />
+    <Import Include="Windows.Foundation.Collections" />
+    <Import Include="Windows.Graphics.Display" />
+    <Import Include="Windows.Storage" />
+    <Import Include="Windows.Storage.Streams" />
+    <Import Include="Windows.UI.ViewManagement" />
+    <Import Include="Windows.UI.Xaml" />
+    <Import Include="Windows.UI.Xaml.Controls" />
+    <Import Include="Windows.UI.Xaml.Controls.Primitives" />
+    <Import Include="Windows.UI.Xaml.Data" />
+    <Import Include="Windows.UI.Xaml.Input" />
+    <Import Include="Windows.UI.Xaml.Media" />
+    <Import Include="Windows.UI.Xaml.Media.Animation" />
+    <Import Include="Windows.UI.Xaml.Media.Imaging" />
+    <Import Include="System.Runtime.InteropServices.WindowsRuntime" />
+    <Import Include="Windows.Phone.UI.Input" />
+    <Import Include="Windows.UI.Xaml.Navigation" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="AboutPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="HubPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <PRIResource Include="Strings\en\Resources.resw">
+      <CustomToolNamespace>XtfViewer</CustomToolNamespace>
+    </PRIResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\jakxtflib\jakxtflib\jakxtflib.vbproj">
+      <Project>{26B9BCEA-2033-43EC-8B12-90DF6492097C}</Project>
+      <Name>jakxtflib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\XtfViewer_CommonAssets\XtfViewer_CommonAssets.vbproj">
+      <Project>{412f846c-145e-4e4c-89ff-958895344337}</Project>
+      <Name>XtfViewer_CommonAssets</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <PRIResource Include="Strings\it\Resources.resw">
+      <CustomToolNamespace>XtfViewer</CustomToolNamespace>
+    </PRIResource>
+  </ItemGroup>
+  <ItemGroup>
+    <PRIResource Include="Strings\en-US\Resources.resw" />
+  </ItemGroup>
+  <ItemGroup>
+    <PRIResource Include="Strings\it-IT\Resources.resw" />
+  </ItemGroup>
+  <ItemGroup />
+  <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '12.0' ">
+    <VisualStudioVersion>12.0</VisualStudioVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(TargetPlatformIdentifier)' == '' ">
+    <TargetPlatformIdentifier>WindowsPhoneApp</TargetPlatformIdentifier>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionExplicit>On</OptionExplicit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionCompare>Binary</OptionCompare>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionStrict>On</OptionStrict>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionInfer>On</OptionInfer>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\WindowsXaml\v$(VisualStudioVersion)\Microsoft.Windows.UI.Xaml.VisualBasic.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
