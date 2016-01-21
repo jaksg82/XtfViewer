@@ -1,0 +1,160 @@
+a:visited {color: black;}
+a:hover {color: blue;}
+a:active {color: black;}
+
+
+#newstable table, th, tr {
+  border: 1px solid black;
+  border-collapse: collapse;
+  background-color: #ffffff;
+  width: 100%;
+}
+#newstable a {
+  font-weight: bold;
+  color: black;
+}
+#newstable th {
+  background-color: #00ffff;
+  color: #0000ff;
+  font-size: 2em;
+  height: 1em;
+}
+#newstable tr {background-color: #ffffff;color: #000000;}
+#newstable tr.last {background-color: #80ff64;}
+#newstable td {
+  border: 1px solid black;
+  padding: 0.25em;
+  height: 1em;
+  font-size: 1em;
+  line-height:1.1em;
+}
+#newstable td.data {text-align: center;font-weight: bold;width: 15%;}
+#newstable td.titolo {text-align: center;font-weight: bold;width: 15%;}
+#newstable td.msg {text-align: left;font-weight: normal;width: 70%;}
+
+
+#helptable table, th, tr {
+  border: 1px solid black;
+  border-collapse: collapse;
+  width: 100%;
+  background-color: #ffffff;
+}
+#helptable th {
+  background-color: #00ffff;
+  color: #0000ff;
+  font-size: 2em;
+  height: 1em;
+}
+#helptable tr {
+  background-color: #ffffff;
+  color: #000000;
+}
+#helptable td.img {
+  border: 1px solid black;
+  padding: 0.5em;
+  width: 50%;
+  text-align: center;
+  font-weight: normal;
+  height: 2em;
+}
+#helptable td.txt {
+  border: 1px solid black;
+  padding: 0.5em;
+  width: 50%;
+  text-align: left;
+  font-weight: normal;
+  height: 2em;
+}
+#helptable img {
+  border: 1px solid #ffffff;
+  margin: 1px;
+  width: 25em;
+}
+#helptable img.large {
+  border: 1px solid #ffffff;
+  margin: 1px;
+  width: 45em;
+}
+
+
+/* Styles for the author infos page */
+#autore a {font-weight:bold;color:black;}
+#autore table, th, tr {
+  border: 1px solid black;
+  border-collapse: collapse;
+  width: 100%;
+  background-color: #ffffff;
+}
+#autore tr {color:black;background-color:white;}
+#autore td {
+  border: 1px solid black;
+  padding: 0.5em;
+  text-align: left;
+  font-weight: bold;
+  height: 2em;
+}
+#autore td.center {
+  border: 1px solid black;
+  padding: 0.5em;
+  text-align: center;
+  font-weight: bold;
+  font-size: 2em;
+  height: 2em;
+}
+
+
+/* Styles for the home page */
+#bodycontent {
+  width: 65em;
+  margin-left:auto;
+  margin-right:auto;
+}
+#bodycontent p.title {
+  text-align: center;
+  font-weight: bold;
+  font-size: 2.5em;
+  line-height:0.5em;
+  color:white;
+}
+#bodycontent a {color:black;}
+#bodycontent a.drop {color:gray;}
+#bodycontent a.white {color: #ffffff;}
+
+#bodycontent table, th, tr {
+  border: 1px solid black;
+  margin-left: auto;
+  margin-right: auto;
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 1em;
+  color: #ffffff;
+  line-height: 2em;
+}
+#bodycontent td {
+  border: 1px solid black;
+  width: 50%;
+  padding: 0.5em;
+  text-align: center;
+  font-weight: normal;
+}
+
+#menu {width:12em;background-color:#dddddd;float:left;}
+#menu p.menu {text-align:left;font-weight:bold;font-size:1.5em;}
+#menu li {font-size: 1em;color:black;}
+#menu li.drop {font-size: 0.8em;color:grey;}
+
+#newsframe {width:53em;background-color:#ffffff;float:left;}
+
+
+/* Style for the source code library page */
+#sources table, th, tr {border: 1px solid black;border-collapse: collapse;width: 100%;}
+#sources th {background-color: #00ffff;color: #0000ff;font-size: 2em;height: 1em;}
+#sources tr {background-color: #ddffff;color: #000000;}
+#sources tr.header {background-color: #80ff64;color: #000000;}
+#sources tr.drop {background-color: #cccccc;color: #000000;}
+#sources td {border: 1px solid black;padding: 0.25em;height: 1em;}
+#sources td.date {text-align: center;font-weight: normal;width: 15%;}
+#sources td.app {text-align: left;font-weight: normal;width:20%;}
+#sources td.ver {text-align: center;font-weight: normal;width: 10%;}
+#sources td.msg {text-align: left;font-weight: normal;width:55%;}
+#sources a {color:#000000;}
