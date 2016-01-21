@@ -50,6 +50,7 @@
     <OutputPath>bin\Release\</OutputPath>
     <DocumentationFile>XtfViewer_Desktop.xml</DocumentationFile>
     <NoWarn>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036,42314</NoWarn>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <PropertyGroup>
     <OptionExplicit>On</OptionExplicit>
@@ -76,16 +77,9 @@
     <ApplicationIcon>Assets\XtfViewer_256.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="JakMonoChart">
-      <HintPath>..\..\JakTimeSeries\bin\Debug\JakMonoChart.dll</HintPath>
-    </Reference>
     <Reference Include="JakXtfLibrary, Version=1.0.0.0, Culture=neutral, PublicKeyToken=ac9ea9b41ce23ff7, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\jakxtflib\jakxtflib\bin\Release\JakXtfLibrary.dll</HintPath>
-    </Reference>
-    <Reference Include="Sparrow.Chart.Wpf.40, Version=13.1.0.118, Culture=neutral, PublicKeyToken=50f33fb8697e9a92, processorArchitecture=MSIL">
-      <HintPath>..\packages\Sparrow.Chart.Wpf.13.1.0.118\lib\net40\Sparrow.Chart.Wpf.40.dll</HintPath>
-      <Private>True</Private>
     </Reference>
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
@@ -221,12 +215,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\XtfViewer_CommonAssets\XtfViewer_CommonAssets.vbproj">
-      <Project>{412f846c-145e-4e4c-89ff-958895344337}</Project>
-      <Name>XtfViewer_CommonAssets</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.5.1">
       <Visible>False</Visible>
       <ProductName>Microsoft .NET Framework 4.5.1 %28x86 and x64%29</ProductName>
@@ -248,6 +236,12 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Assets\XtfViewer_Source.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\XtfViewer_CommonAssets\XtfViewer_CommonAssets.vbproj">
+      <Project>{412f846c-145e-4e4c-89ff-958895344337}</Project>
+      <Name>XtfViewer_CommonAssets</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

@@ -3,6 +3,8 @@ Imports Windows.Storage
 Imports XtfViewerCommonAssets
 Imports XtfViewerUWP10.Common
 
+<Assembly: CLSCompliant(False)>
+
 ''' <summary>
 ''' An empty page that can be used on its own or navigated to within a Frame.
 ''' </summary>
@@ -76,10 +78,12 @@ Public NotInheritable Class MainPage
         AvailableGroups.Clear()
         AvailableGroups.Add(ResourceLoader.GetForCurrentView().GetString("AppAvailGroupHeader"))
         For g = 0 To SampleData.Header.ChannelInfo.Count - 1
-            AvailableGroups.Add(String.Format(ResourceLoader.GetForCurrentView().GetString("AppAvailGroupChannelInfo"), g))
+            AvailableGroups.Add(String.Format(Globalization.CultureInfo.CurrentCulture, ResourceLoader.GetForCurrentView().GetString("AppAvailGroupChannelInfo"), g))
         Next
         For p = 0 To SampleData.DataGroups.Count - 1
-            AvailableGroups.Add(String.Format(ResourceLoader.GetForCurrentView().GetString("AppAvailGroupPacketGroup"), SampleData.DataGroups(p).HeaderType.ToString))
+            AvailableGroups.Add(String.Format(Globalization.CultureInfo.CurrentCulture,
+                                              ResourceLoader.GetForCurrentView().GetString("AppAvailGroupPacketGroup"),
+                                              SampleData.DataGroups(p).HeaderType.ToString(Globalization.CultureInfo.CurrentCulture)))
         Next
 
     End Sub
@@ -121,22 +125,30 @@ Public NotInheritable Class MainPage
         If selFile Is Nothing Then
             'No file selected
         Else
-            Dim XtfStream As Stream = Await selFile.OpenStreamForReadAsync()
             Dim ind As New XtfIndex
             Dim LoadResult As Boolean
-            LoadResult = Await ind.LoadFromXtfFileAsync(XtfStream)
-            SampleData = ind
-            XtfStream.Dispose()
-            SelectedGroup = 0
-            UpdateGroups()
-            ContentSelector.SelectedIndex = SelectedGroup
+            Dim XtfStream = Await selFile.OpenStreamForReadAsync()
+            Dim tmpStream() As Byte
+            Using xtf As IO.BinaryReader = New IO.BinaryReader(XtfStream)
+                tmpStream = xtf.ReadBytes(CInt(XtfStream.Length - 1))
+                LoadResult = Await ind.LoadFromXtfFileAsync(tmpStream)
+            End Using
+
+
+            If LoadResult Then
+                SampleData = ind
+                SelectedGroup = 0
+                UpdateGroups()
+                ContentSelector.SelectedIndex = SelectedGroup
+
+            End If
         End If
 
 
     End Sub
 
 
-    Public Sub InfoButton_Click() Handles InfoButton.Click
+    Public Sub InfoButtonClick() Handles InfoButton.Click
         Frame.Navigate(GetType(AboutPage))
 
     End Sub

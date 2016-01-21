@@ -14,6 +14,8 @@
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{76F1466A-8B6D-4E39-A767-685A06062A39};{F184B08F-C81C-45F6-A57F-5ABD9991F28F}</ProjectTypeGuids>
     <AppxBundle>Always</AppxBundle>
+    <AppxAutoIncrementPackageRevision>True</AppxAutoIncrementPackageRevision>
+    <AppxBundlePlatforms>neutral</AppxBundlePlatforms>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -37,6 +39,7 @@
     <DefineConstants>NETFX_CORE,WINDOWS_PHONE_APP</DefineConstants>
     <DocumentationFile>XtfViewer_Phone8.xml</DocumentationFile>
     <NoWarn>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036,42314</NoWarn>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|ARM'">
     <DebugSymbols>true</DebugSymbols>
@@ -194,7 +197,7 @@
     </PRIResource>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\jakxtflib\jakxtflib\jakxtflib.vbproj">
+    <ProjectReference Include="..\jakxtflib\jakxtflib.vbproj">
       <Project>{26B9BCEA-2033-43EC-8B12-90DF6492097C}</Project>
       <Name>jakxtflib</Name>
     </ProjectReference>

@@ -72,10 +72,12 @@ Public NotInheritable Class HubPage
         AvailableGroups.Clear()
         AvailableGroups.Add(ResourceLoader.GetForCurrentView().GetString("AppAvailGroupHeader"))
         For g = 0 To SampleData.Header.ChannelInfo.Count - 1
-            AvailableGroups.Add(String.Format(ResourceLoader.GetForCurrentView().GetString("AppAvailGroupChannelInfo"), g))
+            AvailableGroups.Add(String.Format(Globalization.CultureInfo.CurrentCulture, ResourceLoader.GetForCurrentView().GetString("AppAvailGroupChannelInfo"), g))
         Next
         For p = 0 To SampleData.DataGroups.Count - 1
-            AvailableGroups.Add(String.Format(ResourceLoader.GetForCurrentView().GetString("AppAvailGroupPacketGroup"), SampleData.DataGroups(p).HeaderType.ToString))
+            AvailableGroups.Add(String.Format(Globalization.CultureInfo.CurrentCulture,
+                                              ResourceLoader.GetForCurrentView().GetString("AppAvailGroupPacketGroup"),
+                                              SampleData.DataGroups(p).HeaderType.ToString(Globalization.CultureInfo.CurrentCulture)))
         Next
 
     End Sub
@@ -137,7 +139,7 @@ Public NotInheritable Class HubPage
     End Sub
 
 
-    Public Sub InfoButton_Click() Handles InfoButton.Click
+    Public Sub InfoButtonClick() Handles InfoButton.Click
         Frame.Navigate(GetType(AboutPage))
 
     End Sub

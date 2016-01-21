@@ -38,6 +38,7 @@
     <DocumentationFile>XtfViewerCommonAssets.xml</DocumentationFile>
     <NoWarn>40057,42016,41999,42020,42021,42022</NoWarn>
     <WarningsAsErrors>42017,42018,42019,42032,42036</WarningsAsErrors>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <PropertyGroup>
     <OptionExplicit>On</OptionExplicit>
@@ -90,6 +91,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="GlobalSuppressions.vb" />
+    <Compile Include="PacketGroup.vb" />
     <Compile Include="Strings\Strings.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -125,6 +127,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="XtfIndexFunctions.vb" />
+    <Compile Include="XtfIndexOutputs.vb" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="My Project\Resources.resx">
@@ -156,11 +159,6 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="JakXtfLibrary">
-      <HintPath>..\..\jakxtflib\jakxtflib\bin\Release\JakXtfLibrary.dll</HintPath>
-    </Reference>
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="Assets\Index_8287.ico">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -174,6 +172,12 @@
     <Content Include="DataModel\SampleData.XtfIndex" />
     <Content Include="DataModel\xtfHeaderTypes.xml" />
     <None Include="XtfViewerCommon.snk" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\jakxtflib\jakxtflib.vbproj">
+      <Project>{26b9bcea-2033-43ec-8b12-90df6492097c}</Project>
+      <Name>jakxtflib</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

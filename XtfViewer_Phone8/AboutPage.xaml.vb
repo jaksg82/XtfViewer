@@ -19,12 +19,12 @@ Public NotInheritable Class AboutPage
         ' Add any initialization after the InitializeComponent() call.
         AboutTitle.Text = ResourceLoader.GetForCurrentView().GetString("AppAboutTitle")
         Dim pkgVer(3) As String
-        pkgVer(0) = Package.Current.Id.Version.Major.ToString
-        pkgVer(1) = Package.Current.Id.Version.Minor.ToString
-        pkgVer(2) = Package.Current.Id.Version.Revision.ToString
-        pkgVer(3) = Package.Current.Id.Version.Build.ToString
+        pkgVer(0) = Package.Current.Id.Version.Major.ToString(Globalization.CultureInfo.CurrentCulture)
+        pkgVer(1) = Package.Current.Id.Version.Minor.ToString(Globalization.CultureInfo.CurrentCulture)
+        pkgVer(2) = Package.Current.Id.Version.Revision.ToString(Globalization.CultureInfo.CurrentCulture)
+        pkgVer(3) = Package.Current.Id.Version.Build.ToString(Globalization.CultureInfo.CurrentCulture)
 
-        AboutText.Text = String.Format(ResourceLoader.GetForCurrentView().GetString("AppAboutText"), pkgVer)
+        AboutText.Text = String.Format(Globalization.CultureInfo.CurrentCulture, ResourceLoader.GetForCurrentView().GetString("AppAboutText"), pkgVer)
         WebLink.Content = ResourceLoader.GetForCurrentView().GetString("AppAboutWebLink")
 
     End Sub

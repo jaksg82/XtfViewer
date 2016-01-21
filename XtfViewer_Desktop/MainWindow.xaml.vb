@@ -1,19 +1,19 @@
 ﻿
 Class MainWindow
 
-    Public Property TestDictionary As ObjectModel.ObservableCollection(Of XtfViewer_CommonAssets.TitleDescriptionObject)
+    Public Property TestDictionary As ObjectModel.ObservableCollection(Of XtfViewerCommonAssets.TitleDescriptionObject)
         Get
-            Return CType(GetValue(Prop1Property), Global.System.Collections.ObjectModel.ObservableCollection(Of XtfViewer_CommonAssets.TitleDescriptionObject))
+            Return CType(GetValue(Prop1Property), Global.System.Collections.ObjectModel.ObservableCollection(Of XtfViewerCommonAssets.TitleDescriptionObject))
         End Get
 
-        Set(ByVal value As ObjectModel.ObservableCollection(Of XtfViewer_CommonAssets.TitleDescriptionObject))
+        Set(ByVal value As ObjectModel.ObservableCollection(Of XtfViewerCommonAssets.TitleDescriptionObject))
             SetValue(Prop1Property, value)
         End Set
     End Property
 
-    Public Shared ReadOnly Prop1Property As DependencyProperty = _
-                           DependencyProperty.Register("TestDictionary", _
-                           GetType(ObjectModel.ObservableCollection(Of XtfViewer_CommonAssets.TitleDescriptionObject)), GetType(MainWindow), _
+    Public Shared ReadOnly Prop1Property As DependencyProperty =
+                           DependencyProperty.Register("TestDictionary",
+                           GetType(ObjectModel.ObservableCollection(Of XtfViewerCommonAssets.TitleDescriptionObject)), GetType(MainWindow),
                            New PropertyMetadata(Nothing))
 
 
@@ -28,14 +28,14 @@ Class MainWindow
         End Set
     End Property
 
-    Public Shared ReadOnly AvailableGroupsProperty As DependencyProperty = _
-                           DependencyProperty.Register("AvailableGroups", _
-                           GetType(ObjectModel.ObservableCollection(Of String)), GetType(MainWindow), _
+    Public Shared ReadOnly AvailableGroupsProperty As DependencyProperty =
+                           DependencyProperty.Register("AvailableGroups",
+                           GetType(ObjectModel.ObservableCollection(Of String)), GetType(MainWindow),
                            New PropertyMetadata(New ObjectModel.ObservableCollection(Of String)()))
 
 
-    Public Property SampleData As XtfViewer_CommonAssets.XtfIndex
-    Public Property AvailableHeaderTypes As XtfViewer_CommonAssets.XtfHeaderTypes
+    Public Property SampleData As XtfViewerCommonAssets.XtfIndex
+    Public Property AvailableHeaderTypes As XtfViewerCommonAssets.XtfHeaderTypes
     Public Property BaseDirectory As String
     Public Property SampleIndexPath As String
     Public Property HeaderTypesPath As String
@@ -63,7 +63,7 @@ Class MainWindow
         AboutFrame.Visibility = Visibility.Collapsed
         LastDir = Environment.GetFolderPath(Environment.SpecialFolder.Desktop)
 
-        SampleData = New XtfViewer_CommonAssets.XtfIndex
+        SampleData = New XtfViewerCommonAssets.XtfIndex
         LoadData()
 
         TestDictionary = SampleData.HeaderToObservableCollection
@@ -74,26 +74,26 @@ Class MainWindow
     Private Async Sub LoadData()
         If SampleIndexIsAvailable Then
             'Load the sample data
-            Dim ind As New XtfViewer_CommonAssets.XtfIndex
+            Dim ind As New XtfViewerCommonAssets.XtfIndex
             Dim XtfStream As New IO.FileStream(SampleIndexPath, IO.FileMode.Open)
             Dim LoadResult As Boolean
             LoadResult = Await ind.LoadFromIndexFileAsync(XtfStream)
             SampleData = ind
             XtfStream.Dispose()
         Else
-            SampleData = New XtfViewer_CommonAssets.XtfIndex
+            SampleData = New XtfViewerCommonAssets.XtfIndex
         End If
 
         If HeaderTypesIsAvailable Then
             'Load the sample data
-            Dim hdr As New XtfViewer_CommonAssets.XtfHeaderTypes
+            Dim hdr As New XtfViewerCommonAssets.XtfHeaderTypes
             Dim XmlHdr As New IO.FileStream(HeaderTypesPath, IO.FileMode.Open)
             Dim LoadResult As Boolean
             LoadResult = Await hdr.LoadFromFileAsync(XmlHdr)
             AvailableHeaderTypes = hdr
             XmlHdr.Dispose()
         Else
-            AvailableHeaderTypes = New XtfViewer_CommonAssets.XtfHeaderTypes
+            AvailableHeaderTypes = New XtfViewerCommonAssets.XtfHeaderTypes
         End If
 
         TestDictionary = SampleData.HeaderToObservableCollection
@@ -150,7 +150,7 @@ Class MainWindow
 
         If opdiag.ShowDialog Then
             'Load the sample data
-            Dim ind As New XtfIndex
+            Dim ind As New XtfViewerCommonAssets.XtfIndex
             Dim XtfStream As New IO.FileStream(opdiag.FileName, IO.FileMode.Open)
             Dim SelDir As New IO.FileInfo(opdiag.FileName)
             LastDir = SelDir.DirectoryName
@@ -176,7 +176,7 @@ Class MainWindow
 
     End Sub
 
-    Public Sub InfoButton_Click() Handles InfoButton.Click, AboutFrame.MouseLeftButtonUp
+    Public Sub InfoButtonClick() Handles InfoButton.Click, AboutFrame.MouseLeftButtonUp
         If AboutFrame.Visibility = Visibility.Visible Then
             AboutFrame.Visibility = Visibility.Collapsed
         Else

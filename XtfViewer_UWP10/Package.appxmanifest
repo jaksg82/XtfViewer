@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Package xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10" xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest" xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10" IgnorableNamespaces="uap mp">
-  <Identity Name="54515SimoneGiacomoni.XtfViewer" Publisher="CN=CDF328CE-D36E-41AD-B084-27073BB76BD9" Version="1.1.0.0" />
+  <Identity Name="54515SimoneGiacomoni.XtfViewer" Publisher="CN=CDF328CE-D36E-41AD-B084-27073BB76BD9" Version="2.1.0.0" />
   <mp:PhoneIdentity PhoneProductId="bfa50b4e-e444-4712-a560-056a4564d1d0" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
   <Properties>
     <DisplayName>Xtf Viewer</DisplayName>
@@ -31,7 +31,6 @@
           <uap:FileTypeAssociation Name="xtf">
             <uap:DisplayName>eXtended Triton Format</uap:DisplayName>
             <uap:InfoTip>eXtended Triton Format</uap:InfoTip>
-            <uap:EditFlags OpenIsSafe="true" />
             <uap:SupportedFileTypes>
               <uap:FileType>.xtf</uap:FileType>
             </uap:SupportedFileTypes>
