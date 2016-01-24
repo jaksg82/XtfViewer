@@ -1,8 +1,8 @@
 ﻿<Page
-    x:Class="XtfViewer_Phone8.HubPage"
+    x:Class="XtfViewerPhone8.HubPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:XtfViewer_Phone8"
+    xmlns:local="using:XtfViewerPhone8"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     DataContext="{Binding RelativeSource={RelativeSource Self}}"

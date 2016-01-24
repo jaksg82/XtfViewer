@@ -1,4 +1,4 @@
-﻿Imports XtfViewer_Phone8.Common
+﻿Imports XtfViewerPhone8.Common
 
 ' The Basic Page item template is documented at http://go.microsoft.com/fwlink/?LinkID=390556
 

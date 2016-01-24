@@ -1,4 +1,4 @@
-﻿Imports XtfViewer_Phone8.Common
+﻿Imports XtfViewerPhone8.Common
 Imports XtfViewerCommonAssets
 
 Public NotInheritable Class HubPage
@@ -40,6 +40,7 @@ Public NotInheritable Class HubPage
 
     Public Property SampleData As XtfIndex
     Public Property AvailableHeaderTypes As XtfHeaderTypes
+    Public Property LoadedFileToken As String
 
     Dim SelectedGroup As Integer
 
@@ -60,7 +61,7 @@ Public NotInheritable Class HubPage
 
         OpenButton.Content = ResourceLoader.GetForCurrentView().GetString("AppOpenFile")
         InfoButton.Content = ResourceLoader.GetForCurrentView().GetString("AppAboutButton")
-
+        LoadedFileToken = ""
         SampleData = New XtfIndex
         UpdateGroups()
         TestDictionary = SampleData.HeaderToObservableCollection
@@ -116,23 +117,21 @@ Public NotInheritable Class HubPage
         openPicker.FileTypeFilter.Add(".xtf")
 
         Dim storageFiles = Await openPicker.PickSingleFileWP8Async
-        Dim selFile As StorageFile
+        'Dim selFile As StorageFile
         If storageFiles Is Nothing Then
             'No file selected
         Else
-            If storageFiles.Count >= 1 Then
-                selFile = storageFiles(0)
-                'Stream stream = await storageFile.OpenStreamForReadAsync();
-                Dim XtfStream As Stream = Await selFile.OpenStreamForReadAsync()
-                Dim ind As New XtfIndex
-                Dim LoadResult As Boolean
-                LoadResult = Await ind.LoadFromXtfFileAsync(XtfStream)
-                SampleData = ind
-                XtfStream.Dispose()
-                SelectedGroup = 0
-                UpdateGroups()
-                ContentSelector.SelectedIndex = SelectedGroup
-            End If
+            Dim XtfStream As Stream = Await storageFiles.OpenStreamForReadAsync()
+            Dim ind As New XtfIndex
+            Dim LoadResult As Boolean
+            LoadResult = Await ind.LoadFromXtfFileAsync(XtfStream)
+            SampleData = ind
+            XtfStream.Dispose()
+            SelectedGroup = 0
+            UpdateGroups()
+            ContentSelector.SelectedIndex = SelectedGroup
+            LoadedFileToken = AccessCache.StorageApplicationPermissions.FutureAccessList.Add(storageFiles)
+
         End If
 
 
@@ -170,23 +169,34 @@ Public NotInheritable Class HubPage
         'Create an appropriate data model for your problem domain to replace the sample data
         Dim AppDataLocal As StorageFolder = ApplicationData.Current.LocalFolder
         Dim AppLocalSettings = ApplicationData.Current.LocalSettings
+        Dim FileExist As Boolean
         Try
-            Dim sampleFile As StorageFile = Await AppDataLocal.GetFileAsync("LoadedXtfIndex.xml")
-            Dim tmpstream As New MemoryStream
-            Dim enc As New Text.UTF8Encoding
-            Dim XmlString As String = Await FileIO.ReadTextAsync(sampleFile)
-            Dim arrBytData() As Byte = enc.GetBytes(XmlString)
-            tmpstream.Write(arrBytData, 0, arrBytData.Length)
-            tmpstream.Seek(0, SeekOrigin.Begin)
-            Await SampleData.LoadFromIndexFileAsync(tmpstream)
-            If AppLocalSettings.Values.ContainsKey("SelectedIndex") Then
-                ContentSelector.SelectedIndex = CType(AppLocalSettings.Values("SelectedIndex"), Integer)
-                SelectedGroup = ContentSelector.SelectedIndex
-            Else
-                ContentSelector.SelectedIndex = 0
-                SelectedGroup = 0
+            If AppLocalSettings.Values.ContainsKey("LoadedFileToken") Then
+                Dim chkFile As String = CType(AppLocalSettings.Values("LoadedFileToken"), String)
+                FileExist = Await isFilePresent(chkFile)
+                If FileExist Then
+                    Dim sampleFile As StorageFile = Await AppDataLocal.GetFileAsync("LoadedXtfIndex.xml")
+                    Dim tmpstream As New MemoryStream
+                    Dim enc As New Text.UTF8Encoding
+                    Dim XmlString As String = Await FileIO.ReadTextAsync(sampleFile)
+                    Dim arrBytData() As Byte = enc.GetBytes(XmlString)
+                    tmpstream.Write(arrBytData, 0, arrBytData.Length)
+                    tmpstream.Seek(0, SeekOrigin.Begin)
+                    Await SampleData.LoadFromIndexFileAsync(tmpstream)
+                    If AppLocalSettings.Values.ContainsKey("SelectedIndex") Then
+                        ContentSelector.SelectedIndex = CType(AppLocalSettings.Values("SelectedIndex"), Integer)
+                        SelectedGroup = ContentSelector.SelectedIndex
+                    Else
+                        ContentSelector.SelectedIndex = 0
+                        SelectedGroup = 0
+                    End If
+                    tmpstream.Dispose()
+                Else
+                    SampleData = New XtfIndex
+                    SelectedGroup = 0
+
+                End If
             End If
-            tmpstream.Dispose()
 
         Catch e1 As Exception
             ' Timestamp not found
@@ -212,7 +222,7 @@ Public NotInheritable Class HubPage
         Await FileIO.WriteTextAsync(sampleFile, SampleData.ToXmlDocument.ToString)
         Dim roamingSettings = ApplicationData.Current.LocalSettings
         roamingSettings.Values("SelectedIndex") = ContentSelector.SelectedIndex.ToString
-
+        roamingSettings.Values("LoadedFileToken") = LoadedFileToken
     End Sub
 
 
@@ -250,5 +260,6 @@ Public NotInheritable Class HubPage
     End Sub
 
 #End Region
+
 
 End Class
