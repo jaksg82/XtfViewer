@@ -6,8 +6,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{DF7B52EB-8E62-490D-9E95-04FA2A20D77B}</ProjectGuid>
     <OutputType>AppContainerExe</OutputType>
-    <RootNamespace>XtfViewer_Phone8</RootNamespace>
-    <AssemblyName>XtfViewer_Phone8</AssemblyName>
+    <RootNamespace>XtfViewerPhone8</RootNamespace>
+    <AssemblyName>XtfViewerPhone8</AssemblyName>
     <DefaultLanguage>en</DefaultLanguage>
     <TargetPlatformVersion>8.1</TargetPlatformVersion>
     <MinimumVisualStudioVersion>12</MinimumVisualStudioVersion>
@@ -25,7 +25,7 @@
     <DefineTrace>true</DefineTrace>
     <OutputPath>bin\Debug\</OutputPath>
     <DefineConstants>NETFX_CORE,WINDOWS_PHONE_APP</DefineConstants>
-    <DocumentationFile>XtfViewer_Phone8.xml</DocumentationFile>
+    <DocumentationFile>XtfViewerPhone8.xml</DocumentationFile>
     <NoWarn>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036,42314</NoWarn>
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
@@ -37,7 +37,7 @@
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
     <DefineConstants>NETFX_CORE,WINDOWS_PHONE_APP</DefineConstants>
-    <DocumentationFile>XtfViewer_Phone8.xml</DocumentationFile>
+    <DocumentationFile>XtfViewerPhone8.xml</DocumentationFile>
     <NoWarn>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036,42314</NoWarn>
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
@@ -51,7 +51,7 @@
     <PlatformTarget>ARM</PlatformTarget>
     <UseVSHostingProcess>false</UseVSHostingProcess>
     <Prefer32Bit>true</Prefer32Bit>
-    <DocumentationFile>XtfViewer_Phone8.xml</DocumentationFile>
+    <DocumentationFile>XtfViewerPhone8.xml</DocumentationFile>
     <NoWarn>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036,42314</NoWarn>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|ARM'">
@@ -63,7 +63,7 @@
     <PlatformTarget>ARM</PlatformTarget>
     <UseVSHostingProcess>false</UseVSHostingProcess>
     <Prefer32Bit>true</Prefer32Bit>
-    <DocumentationFile>XtfViewer_Phone8.xml</DocumentationFile>
+    <DocumentationFile>XtfViewerPhone8.xml</DocumentationFile>
     <NoWarn>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036,42314</NoWarn>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
@@ -76,7 +76,7 @@
     <PlatformTarget>x86</PlatformTarget>
     <UseVSHostingProcess>false</UseVSHostingProcess>
     <Prefer32Bit>true</Prefer32Bit>
-    <DocumentationFile>XtfViewer_Phone8.xml</DocumentationFile>
+    <DocumentationFile>XtfViewerPhone8.xml</DocumentationFile>
     <NoWarn>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036,42314</NoWarn>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
@@ -88,7 +88,7 @@
     <PlatformTarget>x86</PlatformTarget>
     <UseVSHostingProcess>false</UseVSHostingProcess>
     <Prefer32Bit>true</Prefer32Bit>
-    <DocumentationFile>XtfViewer_Phone8.xml</DocumentationFile>
+    <DocumentationFile>XtfViewerPhone8.xml</DocumentationFile>
     <NoWarn>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036,42314</NoWarn>
   </PropertyGroup>
   <ItemGroup>

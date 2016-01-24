@@ -208,7 +208,6 @@
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
     <AppDesigner Include="My Project\" />
-    <None Include="packages.config" />
     <None Include="XtfViewerDesktop.snk" />
   </ItemGroup>
   <ItemGroup>

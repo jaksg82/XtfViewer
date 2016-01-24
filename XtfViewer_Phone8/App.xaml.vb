@@ -1,5 +1,5 @@
 ﻿Imports System.Collections.Generic
-Imports XtfViewer_Phone8.Common
+Imports XtfViewerPhone8.Common
 
 ' The Hub Application template is documented at http://go.microsoft.com/fwlink/?LinkId=391641
 
