@@ -110,6 +110,9 @@ Public NotInheritable Class HubPage
     End Sub
 
     Private Async Sub OpenButton_Click(sender As Object, e As RoutedEventArgs) Handles OpenButton.Click
+        ProgAnim.IsActive = True
+        ProgAnim.Visibility = Visibility.Visible
+
         Dim openPicker As New Pickers.FileOpenPicker
 
         openPicker.ViewMode = Pickers.PickerViewMode.List
@@ -134,6 +137,8 @@ Public NotInheritable Class HubPage
 
         End If
 
+        ProgAnim.IsActive = False
+        ProgAnim.Visibility = Visibility.Collapsed
 
     End Sub
 
