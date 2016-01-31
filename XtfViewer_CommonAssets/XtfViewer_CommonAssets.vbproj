@@ -97,20 +97,10 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Strings.resx</DependentUpon>
     </Compile>
-    <Compile Include="Strings\Strings.en-US.Designer.vb">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Strings.en-US.resx</DependentUpon>
-    </Compile>
     <Compile Include="Strings\Strings.en.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Strings.en.resx</DependentUpon>
-    </Compile>
-    <Compile Include="Strings\Strings.it-IT.Designer.vb">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Strings.it-IT.resx</DependentUpon>
     </Compile>
     <Compile Include="Strings\Strings.it.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -139,10 +129,6 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Strings.en.Designer.vb</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Strings\Strings.it-IT.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Strings.it-IT.Designer.vb</LastGenOutput>
-    </EmbeddedResource>
     <EmbeddedResource Include="Strings\Strings.it.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Strings.it.Designer.vb</LastGenOutput>
@@ -150,11 +136,6 @@
     <EmbeddedResource Include="Strings\Strings.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Strings.Designer.vb</LastGenOutput>
-      <CustomToolNamespace>My.Strings</CustomToolNamespace>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Strings\Strings.en-US.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>Strings.en-US.Designer.vb</LastGenOutput>
       <CustomToolNamespace>My.Strings</CustomToolNamespace>
     </EmbeddedResource>
   </ItemGroup>

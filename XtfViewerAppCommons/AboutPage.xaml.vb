@@ -1,12 +1,13 @@
-﻿Imports XtfViewerPhone8.Common
-
-' The Basic Page item template is documented at http://go.microsoft.com/fwlink/?LinkID=390556
+﻿Imports Windows.UI.Xaml.Navigation
+Imports XtfViewerAppCommons.Common
 
 ''' <summary>
 ''' A basic page that provides characteristics common to most applications.
 ''' </summary>
 Public NotInheritable Class AboutPage
     Inherits Page
+
+    Public Property PageStrings As AppStrings
 
     Private WithEvents _navigationHelper As New NavigationHelper(Me)
     Private ReadOnly _defaultViewModel As New ObservableDictionary()
@@ -17,17 +18,36 @@ Public NotInheritable Class AboutPage
         InitializeComponent()
 
         ' Add any initialization after the InitializeComponent() call.
-        AboutTitle.Text = ResourceLoader.GetForCurrentView().GetString("AppAboutTitle")
+
+    End Sub
+
+    Private Sub AboutPage_Loaded(sender As Object, e As RoutedEventArgs) Handles Me.Loaded
+        PageStrings = New AppStrings
+
+        AboutTitle.Text = PageStrings.AppAboutTitle
+
         Dim pkgVer(3) As String
         pkgVer(0) = Package.Current.Id.Version.Major.ToString(Globalization.CultureInfo.CurrentCulture)
         pkgVer(1) = Package.Current.Id.Version.Minor.ToString(Globalization.CultureInfo.CurrentCulture)
-        pkgVer(2) = Package.Current.Id.Version.Revision.ToString(Globalization.CultureInfo.CurrentCulture)
-        pkgVer(3) = Package.Current.Id.Version.Build.ToString(Globalization.CultureInfo.CurrentCulture)
+        pkgVer(2) = Package.Current.Id.Version.Build.ToString(Globalization.CultureInfo.CurrentCulture)
+        pkgVer(3) = Package.Current.Id.Version.Revision.ToString(Globalization.CultureInfo.CurrentCulture)
 
-        AboutText.Text = String.Format(Globalization.CultureInfo.CurrentCulture, ResourceLoader.GetForCurrentView().GetString("AppAboutText"), pkgVer)
-        WebLink.Content = ResourceLoader.GetForCurrentView().GetString("AppAboutWebLink")
+        AboutText.Text = String.Format(Globalization.CultureInfo.CurrentCulture, PageStrings.AppAboutText, pkgVer)
+        WebLink.Content = PageStrings.AppAboutVisitWeb
+        WebLink.NavigateUri = New Uri(PageStrings.AppAboutWebLink)
 
     End Sub
+
+    Private Sub BackButton_Click(sender As Object, e As RoutedEventArgs) Handles BackButton.Click
+        Frame.GoBack()
+    End Sub
+
+    Private Sub Grid_KeyUp(sender As Object, e As KeyRoutedEventArgs) Handles Me.KeyUp
+        If e.Key = Windows.System.VirtualKey.Back Or e.Key = Windows.System.VirtualKey.GoBack Then
+            Frame.GoBack()
+        End If
+    End Sub
+
 
     ''' <summary>
     ''' Gets the <see cref="NavigationHelper"/> associated with this <see cref="Page"/>.

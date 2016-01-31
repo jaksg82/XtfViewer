@@ -1,5 +1,5 @@
-MainPackage=C:\Users\Simone\Dropbox\VisualStudio Projects\XtfViewer\XtfViewer_UWP10\bin\ARM\Release\Upload\XtfViewer_UWP10_2.1.0.0_ARM.appx
-SymbolPackage=C:\Users\Simone\Dropbox\VisualStudio Projects\XtfViewer\XtfViewer_UWP10\AppPackages\XtfViewer_UWP10_2.1.0.0\XtfViewer_UWP10_2.1.0.0_ARM.appxsym
+MainPackage=C:\Users\Simone\Dropbox\VisualStudio Projects\XtfViewer\XtfViewer_UWP10\bin\ARM\Release\Upload\XtfViewer_UWP10_2.1.4.0_ARM.appx
+SymbolPackage=C:\Users\Simone\Dropbox\VisualStudio Projects\XtfViewer\XtfViewer_UWP10\AppPackages\XtfViewer_UWP10_2.1.4.0\XtfViewer_UWP10_2.1.4.0_ARM.appxsym
 ResourcePack=C:\Users\Simone\Dropbox\VisualStudio Projects\XtfViewer\XtfViewer_UWP10\_language-it.appx
 ResourcePack=C:\Users\Simone\Dropbox\VisualStudio Projects\XtfViewer\XtfViewer_UWP10\_scale-100.appx
 ResourcePack=C:\Users\Simone\Dropbox\VisualStudio Projects\XtfViewer\XtfViewer_UWP10\_scale-125.appx

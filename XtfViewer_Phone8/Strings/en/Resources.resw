@@ -150,6 +150,9 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     <value>Open</value>
   </data>
   <data name="AppAboutWebLink" xml:space="preserve">
+    <value>http://jaksg82.github.io/XtfViewer</value>
+  </data>
+  <data name="AppAboutVisitWeb" xml:space="preserve">
     <value>Visit the web site</value>
   </data>
 </root>

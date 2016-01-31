@@ -9,7 +9,7 @@
 
         <ResourceDictionary>
             <x:String x:Key="AppTitle">XTF Viewer 10</x:String>
-            <x:String x:Key="WebLink">http://jaksg82.github.io/XtfViewer</x:String>
+            
         </ResourceDictionary>
 
     </Application.Resources>

@@ -74,7 +74,7 @@
     <ApplicationManifest>My Project\app.manifest</ApplicationManifest>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>Assets\XtfViewer_256.ico</ApplicationIcon>
+    <ApplicationIcon>Assets\Logo_256.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="JakXtfLibrary, Version=1.0.0.0, Culture=neutral, PublicKeyToken=ac9ea9b41ce23ff7, processorArchitecture=MSIL">
@@ -104,16 +104,6 @@
     <Compile Include="AboutPage.xaml.vb">
       <DependentUpon>AboutPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Strings\AppStrings.it-IT.Designer.vb">
-      <DependentUpon>AppStrings.it-IT.resx</DependentUpon>
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-    </Compile>
-    <Compile Include="Strings\AppStrings.en-US.Designer.vb">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>AppStrings.en-US.resx</DependentUpon>
-    </Compile>
     <Compile Include="Strings\AppStrings2.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -136,21 +126,11 @@
       <SubType>Code</SubType>
     </Compile>
     <EmbeddedResource Include="Strings\AppStrings.en.resx" />
-    <EmbeddedResource Include="Strings\AppStrings.it-IT.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>AppStrings.it-IT.Designer.vb</LastGenOutput>
-      <CustomToolNamespace>XtfViewer</CustomToolNamespace>
-    </EmbeddedResource>
     <EmbeddedResource Include="Strings\AppStrings.it.resx" />
     <EmbeddedResource Include="Strings\AppStrings.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <CustomToolNamespace>XtfViewer</CustomToolNamespace>
       <LastGenOutput>AppStrings2.Designer.vb</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Strings\AppStrings.en-US.resx">
-      <CustomToolNamespace>XtfViewer</CustomToolNamespace>
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>AppStrings.en-US.Designer.vb</LastGenOutput>
     </EmbeddedResource>
     <Page Include="Themes\Generic.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -231,16 +211,20 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Assets\XtfViewer_256.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Assets\XtfViewer_Source.png" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\XtfViewer_CommonAssets\XtfViewer_CommonAssets.vbproj">
       <Project>{412f846c-145e-4e4c-89ff-958895344337}</Project>
       <Name>XtfViewer_CommonAssets</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Logo_16.ico" />
+    <Resource Include="Assets\Logo_20.ico" />
+    <Resource Include="Assets\Logo_24.ico" />
+    <Resource Include="Assets\Logo_256.ico" />
+    <Resource Include="Assets\Logo_40.ico" />
+    <Resource Include="Assets\Logo_48.ico" />
+    <Resource Include="Assets\Logo_64.ico" />
+    <Resource Include="Assets\Logo_96.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

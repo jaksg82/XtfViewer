@@ -161,6 +161,11 @@ rfc/
 
 # Windows Store app package directory
 AppPackages/
+*.appx
+*.appxbundle
+*.appxupload
+*.appxsym
+*.appxbundle
 
 # Visual Studio cache files
 # files ending in .cache can be ignored

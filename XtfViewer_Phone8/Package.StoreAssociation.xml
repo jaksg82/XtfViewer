@@ -364,5 +364,26 @@
     </ReservedNames>
   </ProductReservedInfo>
   <AccountPackageIdentityNames />
-  <PackageInfoList LandingUrl="https://dev.windows.com/dashboard/Application?appId=9NBLGGH5G34M" />
+  <PackageInfoList LandingUrl="https://dev.windows.com/dashboard/Application?appId=9NBLGGH5G34M">
+    <PackageInfo>
+      <OsMinVersion>6.3.1.0</OsMinVersion>
+      <PackageArchitecture>Neutral</PackageArchitecture>
+      <PackageMaxArchitectureVersion>1.1.0.3</PackageMaxArchitectureVersion>
+    </PackageInfo>
+    <PackageInfo>
+      <OsMinVersion>6.3.1.0</OsMinVersion>
+      <PackageArchitecture>Neutral</PackageArchitecture>
+      <PackageMaxArchitectureVersion>1.1.0.3</PackageMaxArchitectureVersion>
+    </PackageInfo>
+    <PackageInfo>
+      <OsMinVersion>6.3.1.0</OsMinVersion>
+      <PackageArchitecture>Neutral</PackageArchitecture>
+      <PackageMaxArchitectureVersion>1.1.0.3</PackageMaxArchitectureVersion>
+    </PackageInfo>
+    <PackageInfo>
+      <OsMinVersion>6.3.1.0</OsMinVersion>
+      <PackageArchitecture>Neutral</PackageArchitecture>
+      <PackageMaxArchitectureVersion>1.1.0.3</PackageMaxArchitectureVersion>
+    </PackageInfo>
+  </PackageInfoList>
 </StoreAssociation>

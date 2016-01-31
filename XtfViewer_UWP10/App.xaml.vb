@@ -90,4 +90,17 @@ NotInheritable Class App
         Return filePickerFiles
     End Function
 
+    Public Event BackRequested As EventHandler(Of Windows.UI.Core.BackRequestedEventArgs)
+
+    Public Sub AppBackRequested() Handles Me.BackRequested
+        Dim rootFrame As Frame = TryCast(Window.Current.Content, Frame)
+
+        If rootFrame.Content Is GetType(XtfViewerAppCommons.AboutPage) Then
+            ' When the navigation stack isn't restored navigate to the first page,
+            ' configuring the new page by passing required information as a navigation
+            ' parameter
+            rootFrame.Navigate(GetType(MainPage))
+        End If
+
+    End Sub
 End Class

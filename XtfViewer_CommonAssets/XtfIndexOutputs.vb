@@ -131,5 +131,19 @@ Partial Public Class XtfIndex
         Return tmpColl
     End Function
 
+    Public Function GetGroupStrings() As ObservableCollection(Of String)
+        Dim AvailGroups As New ObservableCollection(Of String)
+
+        'Fill the AvailableGroup property
+        AvailGroups.Add(My.Strings.Strings.AppAvailGroupMainHeader)
+        For g = 0 To Me.Header.ChannelInfo.Count - 1
+            AvailGroups.Add(String.Format(Globalization.CultureInfo.CurrentCulture, My.Strings.Strings.AppAvailGroupChannelInfo, g))
+        Next
+        For p = 0 To Me.DataGroups.Count - 1
+            AvailGroups.Add(String.Format(Globalization.CultureInfo.CurrentCulture, My.Strings.Strings.AppAvailGroupPacketGroup,
+                                              Me.DataGroups(p).HeaderType.ToString(Globalization.CultureInfo.CurrentCulture)))
+        Next
+        Return AvailGroups
+    End Function
 
 End Class

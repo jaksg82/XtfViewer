@@ -8,7 +8,7 @@
     <OutputType>AppContainerExe</OutputType>
     <RootNamespace>XtfViewerUWP10</RootNamespace>
     <AssemblyName>XtfViewerUWP10</AssemblyName>
-    <DefaultLanguage>en-US</DefaultLanguage>
+    <DefaultLanguage>en</DefaultLanguage>
     <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
     <TargetPlatformVersion>10.0.10586.0</TargetPlatformVersion>
     <TargetPlatformMinVersion>10.0.10240.0</TargetPlatformMinVersion>
@@ -107,9 +107,6 @@
     <None Include="project.json" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AboutPage.xaml.vb">
-      <DependentUpon>AboutPage.xaml</DependentUpon>
-    </Compile>
     <Compile Include="App.xaml.vb">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
@@ -128,13 +125,11 @@
       <SubType>Designer</SubType>
     </AppxManifest>
     <PRIResource Include="Strings\en\Resources.resw">
-      <CustomToolNamespace>XtfViewer</CustomToolNamespace>
+      <CustomToolNamespace>XtfViewerApp</CustomToolNamespace>
     </PRIResource>
-    <PRIResource Include="Strings\en-US\Resources.resw" />
     <PRIResource Include="Strings\it\Resources.resw">
-      <CustomToolNamespace>XtfViewer</CustomToolNamespace>
+      <CustomToolNamespace>XtfViewerApp</CustomToolNamespace>
     </PRIResource>
-    <PRIResource Include="Strings\it-IT\Resources.resw" />
     <None Include="XtfViewer_UWP10_StoreKey.pfx" />
     <None Include="XtfViewer_UWP10_TemporaryKey.pfx" />
   </ItemGroup>
@@ -194,10 +189,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="AboutPage.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Page Include="MainPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -237,6 +228,14 @@
     <ProjectReference Include="..\jakxtflib\jakxtflib.vbproj">
       <Project>{26b9bcea-2033-43ec-8b12-90df6492097c}</Project>
       <Name>jakxtflib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\XtfIndexUwpExtension\XtfIndexUwpExtension.vbproj">
+      <Project>{9e381a20-7afa-44f5-a2b8-0c31b1bbd982}</Project>
+      <Name>XtfIndexUwpExtension</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\XtfViewerAppCommons\XtfViewerAppCommons.vbproj">
+      <Project>{6caf6ed3-6d83-4890-90dc-da977995eb22}</Project>
+      <Name>XtfViewerAppCommons</Name>
     </ProjectReference>
     <ProjectReference Include="..\XtfViewer_CommonAssets\XtfViewer_CommonAssets.vbproj">
       <Project>{412f846c-145e-4e4c-89ff-958895344337}</Project>

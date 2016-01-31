@@ -11,11 +11,11 @@ Imports System.Windows
 
 ' Review the values of the assembly attributes
 
-<Assembly: AssemblyTitle("XtfViewer_Desktop")> 
+<Assembly: AssemblyTitle("XtfViewer for Desktop")>
 <Assembly: AssemblyDescription("")> 
-<Assembly: AssemblyCompany("")> 
-<Assembly: AssemblyProduct("XtfViewer_Desktop")> 
-<Assembly: AssemblyCopyright("Copyright © Simone Giacomoni 2015")> 
+<Assembly: AssemblyCompany("")>
+<Assembly: AssemblyProduct("XtfViewer for Desktop")>
+<Assembly: AssemblyCopyright("Copyright © Simone Giacomoni 2016")>
 <Assembly: AssemblyTrademark("")> 
 <Assembly: ComVisible(false)>
 
@@ -42,7 +42,7 @@ Imports System.Windows
 
 
 'The following GUID is for the ID of the typelib if this project is exposed to COM
-<Assembly: Guid("552059a9-1009-4c9e-a3f7-ffc94e3d86cf")> 
+<Assembly: Guid("552059a9-1009-4c9e-a3f7-ffc94e3d86cf")>
 
 ' Version information for an assembly consists of the following four values:
 '
@@ -55,6 +55,6 @@ Imports System.Windows
 ' by using the '*' as shown below:
 ' <Assembly: AssemblyVersion("1.0.*")> 
 
-<Assembly: AssemblyVersion("1.0.0.0")>
-<Assembly: AssemblyFileVersion("1.0.0.0")>
-<Assembly: NeutralResourcesLanguage("en-US")>
+<Assembly: AssemblyVersion("1.1.0.0")>
+<Assembly: AssemblyFileVersion("1.1.0.0")>
+<Assembly: NeutralResourcesLanguage("en")>

@@ -76,7 +76,7 @@ Public NotInheritable Class App
             ' When the navigation stack isn't restored navigate to the first page,
             ' configuring the new page by passing required information as a navigation
             ' parameter
-            If Not rootFrame.Navigate(GetType(HubPage), e.Arguments) Then
+            If Not rootFrame.Navigate(GetType(MainPage), e.Arguments) Then
                 Throw New Exception("Failed to create initial page")
             End If
         End If
@@ -144,4 +144,17 @@ Public NotInheritable Class App
 
         Return filePickerFiles
     End Function
+
+    Public Event BackRequested As EventHandler(Of BackPressedEventArgs)
+
+    Public Sub AppBackRequested() Handles Me.BackRequested
+        Dim rootFrame As Frame = TryCast(Window.Current.Content, Frame)
+        Dim ActivePage As XtfViewerAppCommons.AboutPage = TryCast(rootFrame.Content, XtfViewerAppCommons.AboutPage)
+
+        If ActivePage IsNot Nothing Then
+            rootFrame.Navigate(GetType(MainPage))
+        End If
+
+    End Sub
+
 End Class

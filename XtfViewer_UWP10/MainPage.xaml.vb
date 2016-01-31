@@ -1,7 +1,7 @@
-﻿Imports Windows.ApplicationModel.Resources
-Imports Windows.Storage
+﻿Imports Windows.Storage
 Imports XtfViewerCommonAssets
 Imports XtfViewerUWP10.Common
+Imports XtfViewerAppCommons
 
 <Assembly: CLSCompliant(False)>
 
@@ -41,13 +41,15 @@ Public NotInheritable Class MainPage
     Public Shared ReadOnly AvailableGroupsProperty As DependencyProperty =
                            DependencyProperty.Register("AvailableGroups",
                            GetType(ObservableCollection(Of String)), GetType(MainPage),
-                           New PropertyMetadata(New ObjectModel.ObservableCollection(Of String)()))
+                           New PropertyMetadata(New ObservableCollection(Of String)()))
 
 
     Public Property SampleData As XtfIndex
     Public Property AvailableHeaderTypes As XtfHeaderTypes
+    Public Property LoadedFileToken As String
 
     Dim SelectedGroup As Integer
+    Dim ResStrings As AppStrings
 
     Private WithEvents _navigationHelper As New NavigationHelper(Me)
 
@@ -57,35 +59,27 @@ Public NotInheritable Class MainPage
     Public Sub New()
         InitializeComponent()
 
-        ' Hub is only supported in Portrait orientation
-        'DisplayInformation.AutoRotationPreferences = DisplayOrientations.Portrait
-
         NavigationCacheMode = NavigationCacheMode.Required
-
+        ResStrings = New AppStrings
         SelectedGroup = 0
-
-        OpenButton.Content = ResourceLoader.GetForCurrentView().GetString("AppOpenFile")
-        InfoButton.Content = ResourceLoader.GetForCurrentView().GetString("AppAboutButton")
-
         SampleData = New XtfIndex
-        UpdateGroups()
-        TestDictionary = SampleData.HeaderToObservableCollection
+        LoadedFileToken = ""
 
     End Sub
 
-    Private Sub UpdateGroups()
-        'Fill the AvailableGroup property
-        AvailableGroups.Clear()
-        AvailableGroups.Add(ResourceLoader.GetForCurrentView().GetString("AppAvailGroupHeader"))
-        For g = 0 To SampleData.Header.ChannelInfo.Count - 1
-            AvailableGroups.Add(String.Format(Globalization.CultureInfo.CurrentCulture, ResourceLoader.GetForCurrentView().GetString("AppAvailGroupChannelInfo"), g))
-        Next
-        For p = 0 To SampleData.DataGroups.Count - 1
-            AvailableGroups.Add(String.Format(Globalization.CultureInfo.CurrentCulture,
-                                              ResourceLoader.GetForCurrentView().GetString("AppAvailGroupPacketGroup"),
-                                              SampleData.DataGroups(p).HeaderType.ToString(Globalization.CultureInfo.CurrentCulture)))
-        Next
-
+    Private Sub HubPage_Loaded(sender As Object, e As RoutedEventArgs) Handles Me.Loaded
+        AvailableGroups = SampleData.GetGroupStrings
+        TestDictionary = SampleData.HeaderToObservableCollection
+        If ContentSelector.SelectedIndex < 0 Then
+            If SelectedGroup > ContentSelector.Items.Count - 1 Then
+                SelectedGroup = 0
+                ContentSelector.SelectedIndex = 0
+            Else
+                ContentSelector.SelectedIndex = SelectedGroup
+            End If
+        End If
+        OpenButton.Label = ResStrings.AppOpenFile
+        InfoButton.Label = ResStrings.AppAboutButton
     End Sub
 
     Private Sub ContentSelector_SelectionChanged(sender As Object, e As SelectionChangedEventArgs) Handles ContentSelector.SelectionChanged
@@ -115,6 +109,9 @@ Public NotInheritable Class MainPage
     End Sub
 
     Private Async Sub OpenButton_Click(sender As Object, e As RoutedEventArgs) Handles OpenButton.Click
+        ProgAnim.IsActive = True
+        ProgAnim.Visibility = Visibility.Visible
+
         Dim openPicker As New Pickers.FileOpenPicker
 
         openPicker.ViewMode = Pickers.PickerViewMode.List
@@ -125,31 +122,27 @@ Public NotInheritable Class MainPage
         If selFile Is Nothing Then
             'No file selected
         Else
-            Dim ind As New XtfIndex
+            Dim ind As New XtfIndexUwpExtension.XtfIndexUwp
             Dim LoadResult As Boolean
-            Dim XtfStream = Await selFile.OpenStreamForReadAsync()
-            Dim tmpStream() As Byte
-            Using xtf As IO.BinaryReader = New IO.BinaryReader(XtfStream)
-                tmpStream = xtf.ReadBytes(CInt(XtfStream.Length - 1))
-                LoadResult = Await ind.LoadFromXtfFileAsync(tmpStream)
-            End Using
-
+            LoadResult = Await ind.LoadFromXtfFileAsync(selFile)
 
             If LoadResult Then
                 SampleData = ind
                 SelectedGroup = 0
-                UpdateGroups()
+                AvailableGroups = SampleData.GetGroupStrings
                 ContentSelector.SelectedIndex = SelectedGroup
+                LoadedFileToken = AccessCache.StorageApplicationPermissions.FutureAccessList.Add(selFile)
 
             End If
         End If
+        ProgAnim.IsActive = False
+        ProgAnim.Visibility = Visibility.Collapsed
 
 
     End Sub
 
-
     Public Sub InfoButtonClick() Handles InfoButton.Click
-        Frame.Navigate(GetType(AboutPage))
+        Frame.Navigate(GetType(XtfViewerAppCommons.AboutPage))
 
     End Sub
 
@@ -179,23 +172,34 @@ Public NotInheritable Class MainPage
         'Create an appropriate data model for your problem domain to replace the sample data
         Dim AppDataLocal As StorageFolder = ApplicationData.Current.LocalFolder
         Dim AppLocalSettings = ApplicationData.Current.LocalSettings
+        Dim FileExist As Boolean
         Try
-            Dim sampleFile As StorageFile = Await AppDataLocal.GetFileAsync("LoadedXtfIndex.xml")
-            Dim tmpstream As New MemoryStream
-            Dim enc As New Text.UTF8Encoding
-            Dim XmlString As String = Await FileIO.ReadTextAsync(sampleFile)
-            Dim arrBytData() As Byte = enc.GetBytes(XmlString)
-            tmpstream.Write(arrBytData, 0, arrBytData.Length)
-            tmpstream.Seek(0, SeekOrigin.Begin)
-            Await SampleData.LoadFromIndexFileAsync(tmpstream)
-            If AppLocalSettings.Values.ContainsKey("SelectedIndex") Then
-                ContentSelector.SelectedIndex = CType(AppLocalSettings.Values("SelectedIndex"), Integer)
-                SelectedGroup = ContentSelector.SelectedIndex
-            Else
-                ContentSelector.SelectedIndex = 0
-                SelectedGroup = 0
+            If AppLocalSettings.Values.ContainsKey("LoadedFileToken") Then
+                Dim chkFile As String = CType(AppLocalSettings.Values("LoadedFileToken"), String)
+                FileExist = Await IsFilePresent(chkFile)
+                If FileExist Then
+                    Dim sampleFile As StorageFile = Await AppDataLocal.GetFileAsync("LoadedXtfIndex.xml")
+                    Dim tmpstream As New MemoryStream
+                    Dim enc As New Text.UTF8Encoding
+                    Dim XmlString As String = Await FileIO.ReadTextAsync(sampleFile)
+                    Dim arrBytData() As Byte = enc.GetBytes(XmlString)
+                    tmpstream.Write(arrBytData, 0, arrBytData.Length)
+                    tmpstream.Seek(0, SeekOrigin.Begin)
+                    Await SampleData.LoadFromIndexFileAsync(tmpstream)
+                    If AppLocalSettings.Values.ContainsKey("SelectedIndex") Then
+                        ContentSelector.SelectedIndex = CType(AppLocalSettings.Values("SelectedIndex"), Integer)
+                        SelectedGroup = ContentSelector.SelectedIndex
+                    Else
+                        ContentSelector.SelectedIndex = 0
+                        SelectedGroup = 0
+                    End If
+                    tmpstream.Dispose()
+                Else
+                    SampleData = New XtfIndex
+                    SelectedGroup = 0
+
+                End If
             End If
-            tmpstream.Dispose()
 
         Catch e1 As Exception
             ' Timestamp not found
@@ -219,9 +223,9 @@ Public NotInheritable Class MainPage
         Dim AppDataLocal As StorageFolder = ApplicationData.Current.LocalFolder
         Dim sampleFile As StorageFile = Await AppDataLocal.CreateFileAsync("LoadedXtfIndex.xml", CreationCollisionOption.ReplaceExisting)
         Await FileIO.WriteTextAsync(sampleFile, SampleData.ToXmlDocument.ToString)
-        Dim roamingSettings = ApplicationData.Current.LocalSettings
-        roamingSettings.Values("SelectedIndex") = ContentSelector.SelectedIndex.ToString
-
+        Dim LocalSets = ApplicationData.Current.LocalSettings
+        LocalSets.Values("SelectedIndex") = ContentSelector.SelectedIndex.ToString
+        LocalSets.Values("LoadedFileToken") = LoadedFileToken
     End Sub
 
 
@@ -247,16 +251,6 @@ Public NotInheritable Class MainPage
         _navigationHelper.OnNavigatedFrom(e)
     End Sub
 
-    Private Sub HubPage_Loaded(sender As Object, e As RoutedEventArgs) Handles Me.Loaded
-        If ContentSelector.SelectedIndex < 0 Then
-            If SelectedGroup > ContentSelector.Items.Count - 1 Then
-                SelectedGroup = 0
-                ContentSelector.SelectedIndex = 0
-            Else
-                ContentSelector.SelectedIndex = SelectedGroup
-            End If
-        End If
-    End Sub
 
 #End Region
 

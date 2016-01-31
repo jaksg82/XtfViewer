@@ -273,4 +273,13 @@
   <data name="XtfPacketGroupCount" xml:space="preserve">
     <value>Number of packets</value>
   </data>
+  <data name="AppAvailGroupMainHeader" xml:space="preserve">
+    <value>Main header</value>
+  </data>
+  <data name="AppAvailGroupChannelInfo" xml:space="preserve">
+    <value>Channel {0} Information</value>
+  </data>
+  <data name="AppAvailGroupPacketGroup" xml:space="preserve">
+    <value>Packets of type: {0}</value>
+  </data>
 </root>

@@ -92,9 +92,6 @@
     <NoWarn>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036,42314</NoWarn>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="AboutPage.xaml.vb">
-      <DependentUpon>AboutPage.xaml</DependentUpon>
-    </Compile>
     <Compile Include="App.xaml.vb">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
@@ -103,8 +100,8 @@
     <Compile Include="Common\ObservableDictionary.vb" />
     <Compile Include="Common\RelayCommand.vb" />
     <Compile Include="Common\SuspensionManager.vb" />
-    <Compile Include="HubPage.xaml.vb">
-      <DependentUpon>HubPage.xaml</DependentUpon>
+    <Compile Include="MainPage.xaml.vb">
+      <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
   </ItemGroup>
@@ -182,24 +179,28 @@
     <Import Include="Windows.UI.Xaml.Navigation" />
   </ItemGroup>
   <ItemGroup>
-    <Page Include="AboutPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="HubPage.xaml">
+    <Page Include="MainPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>
     <PRIResource Include="Strings\en\Resources.resw">
-      <CustomToolNamespace>XtfViewer</CustomToolNamespace>
+      <CustomToolNamespace>XtfViewerApp</CustomToolNamespace>
     </PRIResource>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\jakxtflib\jakxtflib.vbproj">
       <Project>{26B9BCEA-2033-43EC-8B12-90DF6492097C}</Project>
       <Name>jakxtflib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\XtfIndexUwpExtension\XtfIndexUwpExtension.vbproj">
+      <Project>{9e381a20-7afa-44f5-a2b8-0c31b1bbd982}</Project>
+      <Name>XtfIndexUwpExtension</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\XtfViewerAppCommons\XtfViewerAppCommons.vbproj">
+      <Project>{6caf6ed3-6d83-4890-90dc-da977995eb22}</Project>
+      <Name>XtfViewerAppCommons</Name>
     </ProjectReference>
     <ProjectReference Include="..\XtfViewer_CommonAssets\XtfViewer_CommonAssets.vbproj">
       <Project>{412f846c-145e-4e4c-89ff-958895344337}</Project>
@@ -208,14 +209,8 @@
   </ItemGroup>
   <ItemGroup>
     <PRIResource Include="Strings\it\Resources.resw">
-      <CustomToolNamespace>XtfViewer</CustomToolNamespace>
+      <CustomToolNamespace>XtfViewerApp</CustomToolNamespace>
     </PRIResource>
-  </ItemGroup>
-  <ItemGroup>
-    <PRIResource Include="Strings\en-US\Resources.resw" />
-  </ItemGroup>
-  <ItemGroup>
-    <PRIResource Include="Strings\it-IT\Resources.resw" />
   </ItemGroup>
   <ItemGroup />
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '12.0' ">

@@ -1,9 +1,8 @@
 ﻿Imports XtfViewerPhone8.Common
 Imports XtfViewerCommonAssets
 
-Public NotInheritable Class HubPage
+Public NotInheritable Class MainPage
     Inherits Page
-    'Implements IFileOpenPickerContinuable
 
     Public Property TestDictionary As ObservableCollection(Of TitleDescriptionObject)
         Get
@@ -17,7 +16,7 @@ Public NotInheritable Class HubPage
 
     Public Shared ReadOnly Prop1Property As DependencyProperty =
                            DependencyProperty.Register("TestDictionary",
-                           GetType(ObservableCollection(Of TitleDescriptionObject)), GetType(HubPage),
+                           GetType(ObservableCollection(Of TitleDescriptionObject)), GetType(MainPage),
                            New PropertyMetadata(Nothing))
 
 
@@ -34,14 +33,15 @@ Public NotInheritable Class HubPage
 
     Public Shared ReadOnly AvailableGroupsProperty As DependencyProperty =
                            DependencyProperty.Register("AvailableGroups",
-                           GetType(ObservableCollection(Of String)), GetType(HubPage),
-                           New PropertyMetadata(New ObjectModel.ObservableCollection(Of String)()))
+                           GetType(ObservableCollection(Of String)), GetType(MainPage),
+                           New PropertyMetadata(New ObservableCollection(Of String)()))
 
 
     Public Property SampleData As XtfIndex
     Public Property AvailableHeaderTypes As XtfHeaderTypes
     Public Property LoadedFileToken As String
 
+    Dim ResStrings As XtfViewerAppCommons.AppStrings
     Dim SelectedGroup As Integer
 
     Private WithEvents _navigationHelper As New NavigationHelper(Me)
@@ -52,34 +52,27 @@ Public NotInheritable Class HubPage
     Public Sub New()
         InitializeComponent()
 
-        ' Hub is only supported in Portrait orientation
-        'DisplayInformation.AutoRotationPreferences = DisplayOrientations.Portrait
-
         NavigationCacheMode = NavigationCacheMode.Required
-
+        ResStrings = New XtfViewerAppCommons.AppStrings
         SelectedGroup = 0
-
-        OpenButton.Content = ResourceLoader.GetForCurrentView().GetString("AppOpenFile")
-        InfoButton.Content = ResourceLoader.GetForCurrentView().GetString("AppAboutButton")
         LoadedFileToken = ""
         SampleData = New XtfIndex
-        UpdateGroups()
-        TestDictionary = SampleData.HeaderToObservableCollection
 
     End Sub
 
-    Private Sub UpdateGroups()
-        'Fill the AvailableGroup property
-        AvailableGroups.Clear()
-        AvailableGroups.Add(ResourceLoader.GetForCurrentView().GetString("AppAvailGroupHeader"))
-        For g = 0 To SampleData.Header.ChannelInfo.Count - 1
-            AvailableGroups.Add(String.Format(Globalization.CultureInfo.CurrentCulture, ResourceLoader.GetForCurrentView().GetString("AppAvailGroupChannelInfo"), g))
-        Next
-        For p = 0 To SampleData.DataGroups.Count - 1
-            AvailableGroups.Add(String.Format(Globalization.CultureInfo.CurrentCulture,
-                                              ResourceLoader.GetForCurrentView().GetString("AppAvailGroupPacketGroup"),
-                                              SampleData.DataGroups(p).HeaderType.ToString(Globalization.CultureInfo.CurrentCulture)))
-        Next
+    Private Sub HubPage_Loaded(sender As Object, e As RoutedEventArgs) Handles Me.Loaded
+        TestDictionary = SampleData.HeaderToObservableCollection
+        AvailableGroups = SampleData.GetGroupStrings
+        If ContentSelector.SelectedIndex < 0 Then
+            If SelectedGroup > ContentSelector.Items.Count - 1 Then
+                SelectedGroup = 0
+                ContentSelector.SelectedIndex = 0
+            Else
+                ContentSelector.SelectedIndex = SelectedGroup
+            End If
+        End If
+        OpenButton.Label = ResStrings.AppOpenFile
+        InfoButton.Label = ResStrings.AppAboutButton
 
     End Sub
 
@@ -131,7 +124,7 @@ Public NotInheritable Class HubPage
             SampleData = ind
             XtfStream.Dispose()
             SelectedGroup = 0
-            UpdateGroups()
+            AvailableGroups = SampleData.GetGroupStrings
             ContentSelector.SelectedIndex = SelectedGroup
             LoadedFileToken = AccessCache.StorageApplicationPermissions.FutureAccessList.Add(storageFiles)
 
@@ -144,7 +137,7 @@ Public NotInheritable Class HubPage
 
 
     Public Sub InfoButtonClick() Handles InfoButton.Click
-        Frame.Navigate(GetType(AboutPage))
+        Frame.Navigate(GetType(XtfViewerAppCommons.AboutPage))
 
     End Sub
 
@@ -225,9 +218,9 @@ Public NotInheritable Class HubPage
         Dim AppDataLocal As StorageFolder = ApplicationData.Current.LocalFolder
         Dim sampleFile As StorageFile = Await AppDataLocal.CreateFileAsync("LoadedXtfIndex.xml", CreationCollisionOption.ReplaceExisting)
         Await FileIO.WriteTextAsync(sampleFile, SampleData.ToXmlDocument.ToString)
-        Dim roamingSettings = ApplicationData.Current.LocalSettings
-        roamingSettings.Values("SelectedIndex") = ContentSelector.SelectedIndex.ToString
-        roamingSettings.Values("LoadedFileToken") = LoadedFileToken
+        Dim LocalSets = ApplicationData.Current.LocalSettings
+        LocalSets.Values("SelectedIndex") = ContentSelector.SelectedIndex.ToString
+        LocalSets.Values("LoadedFileToken") = LoadedFileToken
     End Sub
 
 
@@ -253,16 +246,6 @@ Public NotInheritable Class HubPage
         _navigationHelper.OnNavigatedFrom(e)
     End Sub
 
-    Private Sub HubPage_Loaded(sender As Object, e As RoutedEventArgs) Handles Me.Loaded
-        If ContentSelector.SelectedIndex < 0 Then
-            If SelectedGroup > ContentSelector.Items.Count - 1 Then
-                SelectedGroup = 0
-                ContentSelector.SelectedIndex = 0
-            Else
-                ContentSelector.SelectedIndex = SelectedGroup
-            End If
-        End If
-    End Sub
 
 #End Region
 
