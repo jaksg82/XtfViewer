@@ -55,11 +55,11 @@
     <SignAssembly>true</SignAssembly>
   </PropertyGroup>
   <PropertyGroup>
-    <AssemblyOriginatorKeyFile>jakXtfLibrary.snk</AssemblyOriginatorKeyFile>
+    <AssemblyOriginatorKeyFile>XtfViewerDebug.pfx</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <ItemGroup>
     <!-- A reference to the entire .NET Framework and Windows SDK is automatically included -->
-    <None Include="jakXtfLibrary.snk" />
+    <None Include="XtfViewerDebug.pfx" />
   </ItemGroup>
   <ItemGroup>
     <Import Include="Microsoft.VisualBasic" />

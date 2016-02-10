@@ -100,6 +100,9 @@
     <Compile Include="Common\ObservableDictionary.vb" />
     <Compile Include="Common\RelayCommand.vb" />
     <Compile Include="Common\SuspensionManager.vb" />
+    <Compile Include="LoadingPage.xaml.vb">
+      <DependentUpon>LoadingPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MainPage.xaml.vb">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
@@ -135,6 +138,7 @@
     <Content Include="Common\ReadMe.txt" />
     <CodeAnalysisDictionary Include="CustomDictionary.xml" />
     <None Include="Package.StoreAssociation.xml" />
+    <None Include="XtfViewerDebug.pfx" />
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
@@ -179,6 +183,10 @@
     <Import Include="Windows.UI.Xaml.Navigation" />
   </ItemGroup>
   <ItemGroup>
+    <Page Include="LoadingPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -194,17 +202,13 @@
       <Project>{26B9BCEA-2033-43EC-8B12-90DF6492097C}</Project>
       <Name>jakxtflib</Name>
     </ProjectReference>
-    <ProjectReference Include="..\XtfIndexUwpExtension\XtfIndexUwpExtension.vbproj">
-      <Project>{9e381a20-7afa-44f5-a2b8-0c31b1bbd982}</Project>
-      <Name>XtfIndexUwpExtension</Name>
-    </ProjectReference>
     <ProjectReference Include="..\XtfViewerAppCommons\XtfViewerAppCommons.vbproj">
       <Project>{6caf6ed3-6d83-4890-90dc-da977995eb22}</Project>
       <Name>XtfViewerAppCommons</Name>
     </ProjectReference>
-    <ProjectReference Include="..\XtfViewer_CommonAssets\XtfViewer_CommonAssets.vbproj">
+    <ProjectReference Include="..\XtfViewer_CommonAssets\XtfViewerDataModel.vbproj">
       <Project>{412f846c-145e-4e4c-89ff-958895344337}</Project>
-      <Name>XtfViewer_CommonAssets</Name>
+      <Name>XtfViewerDataModel</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
@@ -230,6 +234,12 @@
   </PropertyGroup>
   <PropertyGroup>
     <OptionInfer>On</OptionInfer>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>XtfViewerDebug.pfx</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\WindowsXaml\v$(VisualStudioVersion)\Microsoft.Windows.UI.Xaml.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

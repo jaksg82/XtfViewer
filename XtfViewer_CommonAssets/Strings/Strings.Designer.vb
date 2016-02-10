@@ -44,7 +44,7 @@ Namespace My.Strings
         Public Shared ReadOnly Property ResourceManager() As Global.System.Resources.ResourceManager
             Get
                 If Object.ReferenceEquals(resourceMan, Nothing) Then
-                    Dim temp As Global.System.Resources.ResourceManager = New Global.System.Resources.ResourceManager("XtfViewerCommonAssets.Strings", GetType(Strings).GetTypeInfo.Assembly)
+                    Dim temp As Global.System.Resources.ResourceManager = New Global.System.Resources.ResourceManager("XtfViewerDataModel.Strings", GetType(Strings).GetTypeInfo.Assembly)
                     resourceMan = temp
                 End If
                 Return resourceMan
@@ -89,6 +89,15 @@ Namespace My.Strings
         Public Shared ReadOnly Property AppAvailGroupPacketGroup() As String
             Get
                 Return ResourceManager.GetString("AppAvailGroupPacketGroup", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Cerca una stringa localizzata simile a Bathymetry.
+        '''</summary>
+        Public Shared ReadOnly Property XtfHeaderChannelInfoBathy() As String
+            Get
+                Return ResourceManager.GetString("XtfHeaderChannelInfoBathy", resourceCulture)
             End Get
         End Property
         
@@ -210,11 +219,38 @@ Namespace My.Strings
         End Property
         
         '''<summary>
+        '''  Cerca una stringa localizzata simile a Port.
+        '''</summary>
+        Public Shared ReadOnly Property XtfHeaderChannelInfoPort() As String
+            Get
+                Return ResourceManager.GetString("XtfHeaderChannelInfoPort", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Cerca una stringa localizzata simile a Sample per channel.
         '''</summary>
         Public Shared ReadOnly Property XtfHeaderChannelInfoSamplesPerChannel() As String
             Get
                 Return ResourceManager.GetString("XtfHeaderChannelInfoSamplesPerChannel", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Cerca una stringa localizzata simile a Starboard.
+        '''</summary>
+        Public Shared ReadOnly Property XtfHeaderChannelInfoStarboard() As String
+            Get
+                Return ResourceManager.GetString("XtfHeaderChannelInfoStarboard", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Cerca una stringa localizzata simile a Subbottom.
+        '''</summary>
+        Public Shared ReadOnly Property XtfHeaderChannelInfoSubbottom() As String
+            Get
+                Return ResourceManager.GetString("XtfHeaderChannelInfoSubbottom", resourceCulture)
             End Get
         End Property
         
@@ -507,11 +543,29 @@ Namespace My.Strings
         End Property
         
         '''<summary>
+        '''  Cerca una stringa localizzata simile a Not available.
+        '''</summary>
+        Public Shared ReadOnly Property XtfInfoNotAvailable() As String
+            Get
+                Return ResourceManager.GetString("XtfInfoNotAvailable", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Cerca una stringa localizzata simile a Number of packets.
         '''</summary>
         Public Shared ReadOnly Property XtfPacketGroupCount() As String
             Get
                 Return ResourceManager.GetString("XtfPacketGroupCount", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Cerca una stringa localizzata simile a From {0} to {1}.
+        '''</summary>
+        Public Shared ReadOnly Property XtfPacketGroupFromTo() As String
+            Get
+                Return ResourceManager.GetString("XtfPacketGroupFromTo", resourceCulture)
             End Get
         End Property
         
@@ -557,6 +611,33 @@ Namespace My.Strings
         Public Shared ReadOnly Property XtfPacketGroupSubChannelNumber() As String
             Get
                 Return ResourceManager.GetString("XtfPacketGroupSubChannelNumber", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Cerca una stringa localizzata simile a System time reference in milliseconds.
+        '''</summary>
+        Public Shared ReadOnly Property XtfPacketGroupTimeTag() As String
+            Get
+                Return ResourceManager.GetString("XtfPacketGroupTimeTag", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Cerca una stringa localizzata simile a Degrees.
+        '''</summary>
+        Public Shared ReadOnly Property XtfUnitDegrees() As String
+            Get
+                Return ResourceManager.GetString("XtfUnitDegrees", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Cerca una stringa localizzata simile a Meters.
+        '''</summary>
+        Public Shared ReadOnly Property XtfUnitMeters() As String
+            Get
+                Return ResourceManager.GetString("XtfUnitMeters", resourceCulture)
             End Get
         End Property
     End Class

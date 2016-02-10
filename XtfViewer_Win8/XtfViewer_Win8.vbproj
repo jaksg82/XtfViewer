@@ -6,14 +6,18 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{6EC52FF4-E0DD-43F2-AEEC-78F7849B4C7E}</ProjectGuid>
     <OutputType>AppContainerExe</OutputType>
-    <RootNamespace>XtfViewer_Win8</RootNamespace>
-    <AssemblyName>XtfViewer_Win8</AssemblyName>
-    <DefaultLanguage>en-US</DefaultLanguage>
+    <RootNamespace>XtfViewerWin8</RootNamespace>
+    <AssemblyName>XtfViewerWin8</AssemblyName>
+    <DefaultLanguage>en</DefaultLanguage>
     <TargetPlatformVersion>8.1</TargetPlatformVersion>
     <MinimumVisualStudioVersion>12</MinimumVisualStudioVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{BC8A1FFA-BEE3-4634-8014-F334798102B3};{F184B08F-C81C-45F6-A57F-5ABD9991F28F}</ProjectTypeGuids>
-    <PackageCertificateKeyFile>XtfViewer_Win8_TemporaryKey.pfx</PackageCertificateKeyFile>
+    <PackageCertificateKeyFile>XtfViewer_Win8_StoreKey.pfx</PackageCertificateKeyFile>
+    <AppxBundle>Always</AppxBundle>
+    <PackageCertificateThumbprint>D03803994DC3146D084B75BFEF3FB544B8958616</PackageCertificateThumbprint>
+    <AppxAutoIncrementPackageRevision>True</AppxAutoIncrementPackageRevision>
+    <AppxBundlePlatforms>neutral</AppxBundlePlatforms>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -23,7 +27,7 @@
     <DefineTrace>true</DefineTrace>
     <OutputPath>bin\Debug\</OutputPath>
     <DefineConstants>NETFX_CORE</DefineConstants>
-    <DocumentationFile>XtfViewer_Win8.xml</DocumentationFile>
+    <DocumentationFile>XtfViewerWin8.xml</DocumentationFile>
     <NoWarn>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036,42314</NoWarn>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
@@ -34,8 +38,9 @@
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
     <DefineConstants>NETFX_CORE</DefineConstants>
-    <DocumentationFile>XtfViewer_Win8.xml</DocumentationFile>
+    <DocumentationFile>XtfViewerWin8.xml</DocumentationFile>
     <NoWarn>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036,42314</NoWarn>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|ARM'">
     <DebugSymbols>true</DebugSymbols>
@@ -47,7 +52,7 @@
     <PlatformTarget>ARM</PlatformTarget>
     <UseVSHostingProcess>false</UseVSHostingProcess>
     <Prefer32Bit>true</Prefer32Bit>
-    <DocumentationFile>XtfViewer_Win8.xml</DocumentationFile>
+    <DocumentationFile>XtfViewerWin8.xml</DocumentationFile>
     <NoWarn>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036,42314</NoWarn>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|ARM'">
@@ -59,7 +64,7 @@
     <PlatformTarget>ARM</PlatformTarget>
     <UseVSHostingProcess>false</UseVSHostingProcess>
     <Prefer32Bit>true</Prefer32Bit>
-    <DocumentationFile>XtfViewer_Win8.xml</DocumentationFile>
+    <DocumentationFile>XtfViewerWin8.xml</DocumentationFile>
     <NoWarn>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036,42314</NoWarn>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
@@ -72,7 +77,7 @@
     <PlatformTarget>x64</PlatformTarget>
     <UseVSHostingProcess>false</UseVSHostingProcess>
     <Prefer32Bit>true</Prefer32Bit>
-    <DocumentationFile>XtfViewer_Win8.xml</DocumentationFile>
+    <DocumentationFile>XtfViewerWin8.xml</DocumentationFile>
     <NoWarn>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036,42314</NoWarn>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
@@ -84,7 +89,7 @@
     <PlatformTarget>x64</PlatformTarget>
     <UseVSHostingProcess>false</UseVSHostingProcess>
     <Prefer32Bit>true</Prefer32Bit>
-    <DocumentationFile>XtfViewer_Win8.xml</DocumentationFile>
+    <DocumentationFile>XtfViewerWin8.xml</DocumentationFile>
     <NoWarn>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036,42314</NoWarn>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
@@ -97,7 +102,7 @@
     <PlatformTarget>x86</PlatformTarget>
     <UseVSHostingProcess>false</UseVSHostingProcess>
     <Prefer32Bit>true</Prefer32Bit>
-    <DocumentationFile>XtfViewer_Win8.xml</DocumentationFile>
+    <DocumentationFile>XtfViewerWin8.xml</DocumentationFile>
     <NoWarn>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036,42314</NoWarn>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
@@ -109,11 +114,12 @@
     <PlatformTarget>x86</PlatformTarget>
     <UseVSHostingProcess>false</UseVSHostingProcess>
     <Prefer32Bit>true</Prefer32Bit>
-    <DocumentationFile>XtfViewer_Win8.xml</DocumentationFile>
+    <DocumentationFile>XtfViewerWin8.xml</DocumentationFile>
     <NoWarn>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036,42314</NoWarn>
   </PropertyGroup>
   <ItemGroup>
     <!-- A reference to the entire .Net Framework and Windows SDK are automatically included -->
+    <Folder Include="DataModel\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Common\NavigationHelper.vb" />
@@ -123,115 +129,73 @@
     <Compile Include="App.xaml.vb">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Compile Include="HubPage.xaml.vb">
-      <DependentUpon>HubPage.xaml</DependentUpon>
+    <Compile Include="LoadingPage.xaml.vb">
+      <DependentUpon>LoadingPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="SectionPage.xaml.vb">
-      <DependentUpon>SectionPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="ItemPage.xaml.vb">
-      <DependentUpon>ItemPage.xaml</DependentUpon>
+    <Compile Include="MainPage.xaml.vb">
+      <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
-    <Compile Include="DataModel\SampleDataSource.vb" />
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
       <SubType>Designer</SubType>
     </AppxManifest>
+    <None Include="Package.StoreAssociation.xml" />
     <None Include="Common\ReadMe.txt" />
-    <PRIResource Include="Strings\it-IT\Resources.resw" />
-    <PRIResource Include="Strings\en\Resources.resw" />
-    <PRIResource Include="Strings\it\Resources.resw" />
-    <None Include="XtfViewer_Win8_TemporaryKey.pfx" />
-    <PRIResource Include="Strings\en-US\Resources.resw">
-      <SubType>Designer</SubType>
+    <PRIResource Include="Strings\en\Resources.resw">
+      <CustomToolNamespace>XtfViewerApp</CustomToolNamespace>
     </PRIResource>
-    <Resource Include="Assets\XtfViewer_Source.png" />
-    <Content Include="Assets\BadgeLogo.scale-100.png" />
-    <Content Include="Assets\BadgeLogo.scale-125.png" />
-    <Content Include="Assets\BadgeLogo.scale-150.png" />
-    <Content Include="Assets\BadgeLogo.scale-200.png" />
-    <Content Include="Assets\BadgeLogo.scale-400.png" />
-    <Content Include="Assets\SplashScreen.scale-100.png" />
-    <Content Include="Assets\SplashScreen.scale-125.png" />
-    <Content Include="Assets\SplashScreen.scale-150.png" />
-    <Content Include="Assets\SplashScreen.scale-200.png" />
-    <Content Include="Assets\SplashScreen.scale-400.png" />
-    <Content Include="Assets\Square150x150Logo.scale-100.png" />
-    <Content Include="Assets\Square150x150Logo.scale-125.png" />
-    <Content Include="Assets\Square150x150Logo.scale-150.png" />
-    <Content Include="Assets\Square150x150Logo.scale-200.png" />
-    <Content Include="Assets\Square150x150Logo.scale-400.png" />
-    <Content Include="Assets\Square310x310Logo.scale-100.png" />
-    <Content Include="Assets\Square310x310Logo.scale-125.png" />
-    <Content Include="Assets\Square310x310Logo.scale-150.png" />
-    <Content Include="Assets\Square310x310Logo.scale-200.png" />
-    <Content Include="Assets\Square310x310Logo.scale-400.png" />
-    <Content Include="Assets\Square44x44Logo.scale-100.png" />
-    <Content Include="Assets\Square44x44Logo.scale-125.png" />
-    <Content Include="Assets\Square44x44Logo.scale-150.png" />
-    <Content Include="Assets\Square44x44Logo.scale-200.png" />
-    <Content Include="Assets\Square44x44Logo.scale-400.png" />
-    <Content Include="Assets\Square44x44Logo.targetsize-16.png" />
-    <Content Include="Assets\Square44x44Logo.targetsize-16_altform-unplated.png" />
-    <Content Include="Assets\Square44x44Logo.targetsize-20.png" />
-    <Content Include="Assets\Square44x44Logo.targetsize-20_altform-unplated.png" />
-    <Content Include="Assets\Square44x44Logo.targetsize-24.png" />
-    <Content Include="Assets\Square44x44Logo.targetsize-24_altform-unplated.png" />
-    <Content Include="Assets\Square44x44Logo.targetsize-256.png" />
-    <Content Include="Assets\Square44x44Logo.targetsize-256_altform-unplated.png" />
-    <Content Include="Assets\Square44x44Logo.targetsize-30.png" />
-    <Content Include="Assets\Square44x44Logo.targetsize-30_altform-unplated.png" />
-    <Content Include="Assets\Square44x44Logo.targetsize-32.png" />
-    <Content Include="Assets\Square44x44Logo.targetsize-32_altform-unplated.png" />
-    <Content Include="Assets\Square44x44Logo.targetsize-36.png" />
-    <Content Include="Assets\Square44x44Logo.targetsize-36_altform-unplated.png" />
-    <Content Include="Assets\Square44x44Logo.targetsize-40.png" />
-    <Content Include="Assets\Square44x44Logo.targetsize-40_altform-unplated.png" />
-    <Content Include="Assets\Square44x44Logo.targetsize-48.png" />
-    <Content Include="Assets\Square44x44Logo.targetsize-48_altform-unplated.png" />
-    <Content Include="Assets\Square44x44Logo.targetsize-60.png" />
-    <Content Include="Assets\Square44x44Logo.targetsize-60_altform-unplated.png" />
-    <Content Include="Assets\Square44x44Logo.targetsize-64.png" />
-    <Content Include="Assets\Square44x44Logo.targetsize-64_altform-unplated.png" />
-    <Content Include="Assets\Square44x44Logo.targetsize-72.png" />
-    <Content Include="Assets\Square44x44Logo.targetsize-72_altform-unplated.png" />
-    <Content Include="Assets\Square44x44Logo.targetsize-80.png" />
-    <Content Include="Assets\Square44x44Logo.targetsize-80_altform-unplated.png" />
-    <Content Include="Assets\Square44x44Logo.targetsize-96.png" />
-    <Content Include="Assets\Square44x44Logo.targetsize-96_altform-unplated.png" />
-    <Content Include="Assets\Square71x71Logo.scale-100.png" />
-    <Content Include="Assets\Square71x71Logo.scale-125.png" />
-    <Content Include="Assets\Square71x71Logo.scale-150.png" />
-    <Content Include="Assets\Square71x71Logo.scale-200.png" />
-    <Content Include="Assets\Square71x71Logo.scale-400.png" />
-    <Content Include="Assets\StoreLogo.scale-100.png" />
-    <Content Include="Assets\StoreLogo.scale-125.png" />
-    <Content Include="Assets\StoreLogo.scale-150.png" />
-    <Content Include="Assets\StoreLogo.scale-200.png" />
-    <Content Include="Assets\StoreLogo.scale-400.png" />
-    <Content Include="Assets\Wide310x150Logo.scale-100.png" />
-    <Content Include="Assets\Wide310x150Logo.scale-125.png" />
-    <Content Include="Assets\Wide310x150Logo.scale-150.png" />
-    <Content Include="Assets\Wide310x150Logo.scale-200.png" />
-    <Content Include="Assets\Wide310x150Logo.scale-400.png" />
-    <Content Include="DataModel\SampleData.json" />
+    <PRIResource Include="Strings\it\Resources.resw">
+      <CustomToolNamespace>XtfViewerApp</CustomToolNamespace>
+    </PRIResource>
+    <None Include="XtfViewerDebug.pfx" />
+    <None Include="XtfViewer_Win8_StoreKey.pfx" />
+    <None Include="XtfViewer_Win8_TemporaryKey.pfx" />
+    <Content Include="Assets\LogoBadge.scale-100.png" />
+    <Content Include="Assets\LogoBadge.scale-140.png" />
+    <Content Include="Assets\LogoBadge.scale-180.png" />
+    <Content Include="Assets\LogoSplash.scale-100.png" />
+    <Content Include="Assets\LogoSplash.scale-140.png" />
+    <Content Include="Assets\LogoSplash.scale-180.png" />
+    <Content Include="Assets\LogoSquare150x150.scale-100.png" />
+    <Content Include="Assets\LogoSquare150x150.scale-140.png" />
+    <Content Include="Assets\LogoSquare150x150.scale-180.png" />
+    <Content Include="Assets\LogoSquare150x150.scale-80.png" />
+    <Content Include="Assets\LogoSquare30x30.scale-100.png" />
+    <Content Include="Assets\LogoSquare30x30.scale-140.png" />
+    <Content Include="Assets\LogoSquare30x30.scale-180.png" />
+    <Content Include="Assets\LogoSquare30x30.scale-80.png" />
+    <Content Include="Assets\LogoSquare30x30.targetsize-16.png" />
+    <Content Include="Assets\LogoSquare30x30.targetsize-256.png" />
+    <Content Include="Assets\LogoSquare30x30.targetsize-32.png" />
+    <Content Include="Assets\LogoSquare30x30.targetsize-48.png" />
+    <Content Include="Assets\LogoSquare310x310.scale-100.png" />
+    <Content Include="Assets\LogoSquare310x310.scale-140.png" />
+    <Content Include="Assets\LogoSquare310x310.scale-180.png" />
+    <Content Include="Assets\LogoSquare310x310.scale-80.png" />
+    <Content Include="Assets\LogoSquare70x70.scale-100.png" />
+    <Content Include="Assets\LogoSquare70x70.scale-140.png" />
+    <Content Include="Assets\LogoSquare70x70.scale-180.png" />
+    <Content Include="Assets\LogoSquare70x70.scale-80.png" />
+    <Content Include="Assets\LogoStore.scale-100.png" />
+    <Content Include="Assets\LogoStore.scale-140.png" />
+    <Content Include="Assets\LogoStore.scale-180.png" />
+    <Content Include="Assets\LogoWide310x150.scale-100.png" />
+    <Content Include="Assets\LogoWide310x150.scale-140.png" />
+    <Content Include="Assets\LogoWide310x150.scale-180.png" />
+    <Content Include="Assets\LogoWide310x150.scale-80.png" />
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="HubPage.xaml">
+    <Page Include="LoadingPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="SectionPage.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="ItemPage.xaml">
+    <Page Include="MainPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -268,6 +232,20 @@
     <Import Include="Windows.UI.Xaml.Media.Imaging" />
     <Import Include="Windows.UI.Xaml.Navigation" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\jakxtflib\jakxtflib.vbproj">
+      <Project>{26b9bcea-2033-43ec-8b12-90df6492097c}</Project>
+      <Name>jakxtflib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\XtfViewerAppCommons\XtfViewerAppCommons.vbproj">
+      <Project>{6caf6ed3-6d83-4890-90dc-da977995eb22}</Project>
+      <Name>XtfViewerAppCommons</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\XtfViewer_CommonAssets\XtfViewerDataModel.vbproj">
+      <Project>{412f846c-145e-4e4c-89ff-958895344337}</Project>
+      <Name>XtfViewerDataModel</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '12.0' ">
     <VisualStudioVersion>12.0</VisualStudioVersion>
   </PropertyGroup>
@@ -282,6 +260,12 @@
   </PropertyGroup>
   <PropertyGroup>
     <OptionInfer>On</OptionInfer>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>XtfViewerDebug.pfx</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\WindowsXaml\v$(VisualStudioVersion)\Microsoft.Windows.UI.Xaml.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

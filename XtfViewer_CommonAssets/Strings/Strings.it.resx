@@ -282,4 +282,31 @@
   <data name="AppAvailGroupPacketGroup" xml:space="preserve">
     <value>Pacchetti del tipo: {0}</value>
   </data>
+  <data name="XtfPacketGroupFromTo" xml:space="preserve">
+    <value>Da {0} a {1}</value>
+  </data>
+  <data name="XtfInfoNotAvailable" xml:space="preserve">
+    <value>Non disponibile</value>
+  </data>
+  <data name="XtfUnitMeters" xml:space="preserve">
+    <value>Metri</value>
+  </data>
+  <data name="XtfUnitDegrees" xml:space="preserve">
+    <value>Gradi</value>
+  </data>
+  <data name="XtfHeaderChannelInfoPort" xml:space="preserve">
+    <value>Sinistra</value>
+  </data>
+  <data name="XtfHeaderChannelInfoStarboard" xml:space="preserve">
+    <value>Dritta</value>
+  </data>
+  <data name="XtfHeaderChannelInfoSubbottom" xml:space="preserve">
+    <value>Subbottom</value>
+  </data>
+  <data name="XtfHeaderChannelInfoBathy" xml:space="preserve">
+    <value>Batimetria</value>
+  </data>
+  <data name="XtfPacketGroupTimeTag" xml:space="preserve">
+    <value>Tempo di riferimento del sistema in millisecondi</value>
+  </data>
 </root>

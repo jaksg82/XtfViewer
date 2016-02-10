@@ -49,7 +49,7 @@
                 </Setter.Value>
             </Setter>
         </Style>
-
+        
     </Page.Resources>
 
     <Grid x:Name="LayoutRoot" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
@@ -80,15 +80,15 @@
             </Grid.RowDefinitions>
 
             <ComboBox x:Name="ContentSelector" HorizontalAlignment="Stretch" Margin="10,0" VerticalAlignment="Top"
-                      ItemsSource="{Binding AvailableGroups}" IsRightTapEnabled="False" IsHoldingEnabled="False"
-                      IsDoubleTapEnabled="False" />
+                      IsRightTapEnabled="False" IsHoldingEnabled="False" IsDoubleTapEnabled="False" />
 
-            <ProgressRing x:Name="ProgAnim" Grid.Row="1" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
-                          Foreground="{ThemeResource ApplicationForegroundThemeBrush}" Visibility="Collapsed" />
+            <ProgressRing x:Name="ProgAnim" Grid.Row="1" Background="{ThemeResource ProgressBarBackgroundThemeBrush}"
+                          Foreground="{ThemeResource ProgressBarIndeterminateForegroundThemeBrush}"
+                          Width="{ThemeResource AppBarThemeMinHeight}" Height="{ThemeResource AppBarThemeMinHeight}"
+                          Visibility="Collapsed" />
 
             <ListBox x:Name="ContentLister" HorizontalAlignment="Stretch" Margin="10,0" VerticalAlignment="Stretch"
-                Grid.Row="2" Style="{StaticResource strechedItemStyle}"
-                ItemsSource="{Binding TestDictionary}" FontFamily="Global User Interface"
+                Grid.Row="2" Style="{StaticResource strechedItemStyle}" FontFamily="Global User Interface"
                 ScrollViewer.VerticalScrollBarVisibility="Visible" IsDoubleTapEnabled="False" 
                 IsHoldingEnabled="False" IsRightTapEnabled="False" IsTapEnabled="False"
                 Background="{ThemeResource ListBoxBackgroundThemeBrush}"/>

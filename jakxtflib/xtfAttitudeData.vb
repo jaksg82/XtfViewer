@@ -27,6 +27,9 @@ Public Class XtfAttitudeData
 
     Public Property FixTime As Date
 
+    Public Property SourceEpoch As UInt32
+    Public Property SourceEpochMicroseconds As UInt32
+
     Public Sub New()
         'from base class
         NumberBytesThisRecord = 64
@@ -38,7 +41,8 @@ Public Class XtfAttitudeData
         TimeTag = 0
         Heading = 0
         FixTime = Date.MinValue
-
+        SourceEpoch = 0
+        SourceEpochMicroseconds = 0
     End Sub
 
     ''' <summary>
@@ -60,19 +64,22 @@ Public Class XtfAttitudeData
         TimeTag = 0
         Heading = 0
         FixTime = Date.MinValue
+        SourceEpoch = 0
+        SourceEpochMicroseconds = 0
 
         Using dp As New BinaryReader(ByteArrayToMemoryStream(byteArray))
             chkNumber = dp.ReadUInt16
             If chkNumber = XtfMainHeaderX36.MagicNumber Then
                 dp.ReadByte() 'HeaderType
-                dp.ReadByte() 'Unused
-                dp.ReadUInt16() 'Unused
-                dp.ReadUInt16() 'Unused
+                dp.ReadByte() 'Sub channel number
+                dp.ReadUInt16() 'Num chan to follow
+                dp.ReadUInt16() 'Reserved1[2]
+                dp.ReadUInt16() 'Reserved1[2]
                 dp.ReadUInt32() 'NumBytesThisRecord
-                dp.ReadUInt32() 'Unused
-                dp.ReadUInt32() 'Unused
-                dp.ReadUInt32() 'Unused
-                dp.ReadUInt32() 'Unused
+                dp.ReadUInt32() 'Reserved2[2]
+                dp.ReadUInt32() 'Reserved2[2]
+                SourceEpochMicroseconds = dp.ReadUInt32() 'EpochMicroseconds
+                SourceEpoch = dp.ReadUInt32() 'SourceEpoch
                 Pitch = dp.ReadSingle
                 Roll = dp.ReadSingle
                 Heave = dp.ReadSingle

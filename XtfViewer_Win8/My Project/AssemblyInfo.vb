@@ -1,4 +1,5 @@
-﻿Imports System
+﻿Imports System.Resources
+Imports System
 Imports System.Reflection
 Imports System.Runtime.InteropServices
 
@@ -8,11 +9,11 @@ Imports System.Runtime.InteropServices
 
 ' Review the values of the assembly attributes
 
-<Assembly: AssemblyTitle("XtfViewer_Win8")>
+<Assembly: AssemblyTitle("XtfViewer for Windows 8")>
 <Assembly: AssemblyDescription("")>
 <Assembly: AssemblyCompany("")>
-<Assembly: AssemblyProduct("XtfViewer_Win8")>
-<Assembly: AssemblyCopyright("Copyright ©  2015")>
+<Assembly: AssemblyProduct("XtfViewer")>
+<Assembly: AssemblyCopyright("Copyright © Simone Giacomoni 2016")>
 <Assembly: AssemblyTrademark("")>
 
 ' Version information for an assembly consists of the following four values:
@@ -26,6 +27,7 @@ Imports System.Runtime.InteropServices
 ' by using the '*' as shown below:
 ' <Assembly: AssemblyVersion("1.0.*")> 
 
-<Assembly: AssemblyVersion("1.0.0.0")>
-<Assembly: AssemblyFileVersion("1.0.0.0")>
+<Assembly: AssemblyVersion("1.50.0.0")>
+<Assembly: AssemblyFileVersion("1.50.0.0")>
 <Assembly: ComVisible(False)>
+<Assembly: NeutralResourcesLanguage("en")>

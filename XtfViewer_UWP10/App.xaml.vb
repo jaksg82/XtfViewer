@@ -1,4 +1,5 @@
 ﻿Imports Windows.Storage
+
 ''' <summary>
 ''' Provides application-specific behavior to supplement the default Application class.
 ''' </summary>
@@ -41,7 +42,7 @@ NotInheritable Class App
             ' When the navigation stack isn't restored navigate to the first page,
             ' configuring the new page by passing required information as a navigation
             ' parameter
-            rootFrame.Navigate(GetType(MainPage), e.Arguments)
+            rootFrame.Navigate(GetType(LoadingPage))
         End If
 
         ' Ensure the current window is active
@@ -72,6 +73,7 @@ NotInheritable Class App
 
     Public Shared filePickerFiles As IReadOnlyList(Of StorageFile)
     Public folderPickerFolder As StorageFolder
+    Public Shared XtfData As New XtfViewerDataModel.XtfIndex
 
     Public Shared Async Function SingleFileSelectorHelper(filePicker As Pickers.FileOpenPicker) As Task(Of IReadOnlyList(Of StorageFile))
 

@@ -1,5 +1,8 @@
 ﻿Imports XtfLibrary
 
+''' <summary>
+''' Represent the group object of the XtfIndex class
+''' </summary>
 Public Class PacketGroup
     Public Property HeaderType As Byte
     Public ReadOnly Property Packets As ObservableCollection(Of XtfPacketSniffer)

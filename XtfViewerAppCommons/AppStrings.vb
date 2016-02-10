@@ -1,6 +1,9 @@
 ﻿Imports Windows.ApplicationModel.Resources
 Imports Windows.ApplicationModel.Resources.Core
 
+''' <summary>
+''' Resource manager with fallback for the UI strings
+''' </summary>
 Public Class AppStrings
     Dim _AppAboutTitle, _AppAboutText, _AppAboutWebLink, _AppAboutButton, _AppAboutVisitWeb As String
     Dim _AppAvailGroupChannelInfo, _AppAvailGroupHeader, _AppAvailGroupPacketGroup, _AppOpenFile As String

@@ -23,7 +23,7 @@
         <StackPanel Grid.Row="0" Margin="19,0,0,0">
             <TextBlock x:Name="AppTitle" Text="AppTitle" 
                        Style="{ThemeResource TitleTextBlockStyle}" Margin="0,12,0,0"/>
-            <TextBlock x:Name="AboutTitle" Text="AboutTitle" Margin="0,-6.5,0,26.5"
+            <TextBlock x:Name="AboutTitle" Text="AboutTitle" Margin="0,0,0,26.5"
                        Style="{ThemeResource HeaderTextBlockStyle}" />
         </StackPanel>
         <!--Content should be placed within the following grid-->

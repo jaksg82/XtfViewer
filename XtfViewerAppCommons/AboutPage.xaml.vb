@@ -24,6 +24,7 @@ Public NotInheritable Class AboutPage
     Private Sub AboutPage_Loaded(sender As Object, e As RoutedEventArgs) Handles Me.Loaded
         PageStrings = New AppStrings
 
+        AppTitle.Text = Package.Current.Id.Name
         AboutTitle.Text = PageStrings.AppAboutTitle
 
         Dim pkgVer(3) As String

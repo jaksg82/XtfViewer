@@ -8,7 +8,7 @@ Imports System.Reflection
 
 ' Review the values of the assembly attributes
 
-<Assembly: AssemblyTitle("XtfViewer Common Assets")>
+<Assembly: AssemblyTitle("XtfViewer Data Model")>
 <Assembly: AssemblyDescription("Library to handle the XTF reading dll and serve the information to the UI")>
 <Assembly: AssemblyCompany("")>
 <Assembly: AssemblyProduct("XtfViewer")>
@@ -27,5 +27,5 @@ Imports System.Reflection
 ' by using the '*' as shown below:
 ' <Assembly: AssemblyVersion("1.0.*")> 
 
-<Assembly: AssemblyVersion("1.2.0.0")>
-<Assembly: AssemblyFileVersion("1.2.0.0")>
+<Assembly: AssemblyVersion("1.2.1.0")>
+<Assembly: AssemblyFileVersion("1.2.1.0")>

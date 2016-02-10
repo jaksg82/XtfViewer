@@ -50,10 +50,10 @@ Public Class XtfPosRawNavigation
             chkNumber = dp.ReadUInt16
             If chkNumber = XtfMainHeaderX36.MagicNumber Then
                 dp.ReadByte() 'HeaderType
-                dp.ReadByte() 'Unused
-                dp.ReadUInt16() 'Unused
-                dp.ReadUInt16() 'Unused
-                dp.ReadUInt16() 'Unused
+                dp.ReadByte() 'SubChannelNumber
+                dp.ReadUInt16() 'NumChansToFollow
+                dp.ReadUInt16() 'Reserved1[2]
+                dp.ReadUInt16() 'Reserved1[2]
                 NumberBytesThisRecord = dp.ReadUInt32 'NumBytesThisRecord
                 Year = dp.ReadUInt16
                 Month = dp.ReadByte
