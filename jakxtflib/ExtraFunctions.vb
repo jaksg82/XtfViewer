@@ -7,7 +7,7 @@
             mem.Seek(0, SeekOrigin.Begin)
             ByteArrayToMemoryStream = mem
         Finally
-            mem.Dispose()
+            'mem.Dispose()
         End Try
 
     End Function

@@ -2,6 +2,7 @@
 Imports System.Xml.Serialization
 Imports System.Xml
 Imports Windows.Storage
+Imports System.IO
 
 <Assembly: CLSCompliant(False)>
 <Assembly: Runtime.InteropServices.ComVisible(False)>
@@ -32,25 +33,25 @@ Public Class XtfIndex
         Header = New XtfMainHeaderX36
         DataGroups.Clear()
 
-        Using xtf As BinaryReader = New BinaryReader(XtfFile)
+        Using xtf As IO.BinaryReader = New IO.BinaryReader(XtfFile)
             'Make sure to start from the first byte
-            xtf.BaseStream.Seek(0, SeekOrigin.Begin)
+            xtf.BaseStream.Seek(0, IO.SeekOrigin.Begin)
             'Create the MainHeader object
-            Dim header As New XtfMainHeaderX36(xtf.ReadBytes(3072))
+            Dim Hdr As New XtfMainHeaderX36(xtf.ReadBytes(3072))
             'Store the MainHeader
-            Me.Header = header
+            Me.Header = Hdr
             'Compute the true size of the MainHeader
-            If header.ChannelInfo.Count <= 6 Then
+            If Hdr.ChannelInfo.Count <= 6 Then
                 ActualByte = 1024
             Else
-                If header.ChannelInfo.Count <= 14 Then
+                If Hdr.ChannelInfo.Count <= 14 Then
                     ActualByte = 2048
                 Else
                     ActualByte = 3072 'up to 22 channels
                 End If
             End If
             'Make sure to start after the MainHeader
-            xtf.BaseStream.Seek(ActualByte - 1, SeekOrigin.Begin)
+            xtf.BaseStream.Seek(ActualByte - 1, IO.SeekOrigin.Begin)
             'Parse the file looking for the packets
             Do Until TotalBytes - ActualByte < 257
                 Dim snif As New XtfPacketSniffer(xtf.ReadBytes(257))
@@ -79,10 +80,10 @@ Public Class XtfIndex
 
                     'Update the position
                     ActualByte = ActualByte + snif.NumberBytesThisRecord
-                    xtf.BaseStream.Seek(ActualByte - 1, SeekOrigin.Begin)
+                    xtf.BaseStream.Seek(ActualByte - 1, IO.SeekOrigin.Begin)
                 Else
                     ActualByte = ActualByte + 1
-                    xtf.BaseStream.Seek(ActualByte - 1, SeekOrigin.Begin)
+                    xtf.BaseStream.Seek(ActualByte - 1, IO.SeekOrigin.Begin)
                 End If
 
             Loop
@@ -112,9 +113,9 @@ Public Class XtfIndex
             Header = New XtfMainHeaderX36
             DataGroups.Clear()
 
-            Using xtf As BinaryReader = New BinaryReader(XtfStream)
+            Using xtf As IO.BinaryReader = New IO.BinaryReader(XtfStream, Text.Encoding.UTF8, True)
                 'Make sure to start from the first byte
-                xtf.BaseStream.Seek(0, SeekOrigin.Begin)
+                xtf.BaseStream.Seek(0, IO.SeekOrigin.Begin)
                 'Create the MainHeader object
                 Dim header As New XtfMainHeaderX36(xtf.ReadBytes(3072))
                 'Store the MainHeader
@@ -130,7 +131,7 @@ Public Class XtfIndex
                     End If
                 End If
                 'Make sure to start after the MainHeader
-                xtf.BaseStream.Seek(ActualByte - 1, SeekOrigin.Begin)
+                xtf.BaseStream.Seek(ActualByte - 1, IO.SeekOrigin.Begin)
                 'Parse the file looking for the packets
                 Do Until TotalBytes - ActualByte < 257
                     Dim snif As New XtfPacketSniffer(xtf.ReadBytes(257))
@@ -159,10 +160,10 @@ Public Class XtfIndex
 
                         'Update the position
                         ActualByte = ActualByte + snif.NumberBytesThisRecord
-                        xtf.BaseStream.Seek(ActualByte - 1, SeekOrigin.Begin)
+                        xtf.BaseStream.Seek(ActualByte - 1, IO.SeekOrigin.Begin)
                     Else
                         ActualByte = ActualByte + 1
-                        xtf.BaseStream.Seek(ActualByte - 1, SeekOrigin.Begin)
+                        xtf.BaseStream.Seek(ActualByte - 1, IO.SeekOrigin.Begin)
                     End If
 
                 Loop
@@ -184,8 +185,8 @@ Public Class XtfIndex
     ''' </summary>
     ''' <param name="IndexFile"></param>
     ''' <returns></returns>
-    Public Async Function LoadFromIndexFileAsync(IndexFile As Stream) As Task(Of Boolean)
-        Using stream As MemoryStream = New MemoryStream
+    Public Async Function LoadFromIndexFileAsync(IndexFile As IO.Stream) As Task(Of Boolean)
+        Using stream As IO.MemoryStream = New IO.MemoryStream
             Await IndexFile.CopyToAsync(stream)
             stream.Seek(0, SeekOrigin.Begin)
             Dim s As XmlSerializer = New XmlSerializer(GetType(XtfIndex))
@@ -207,16 +208,16 @@ Public Class XtfIndex
     ''' </summary>
     ''' <returns></returns>
     Public Async Function SaveToIndexFileAsync() As Task(Of Stream)
-        Dim result As New MemoryStream
+        Dim result As New IO.MemoryStream
         Dim xmlSet As New XmlWriterSettings
         xmlSet.Indent = True
         xmlSet.CheckCharacters = True
 
-        Using stream As New MemoryStream()
+        Using stream As New IO.MemoryStream()
             Dim s As XmlSerializer = New XmlSerializer(GetType(XtfIndex))
             s.Serialize(XmlWriter.Create(stream, xmlSet), Me)
             stream.Flush()
-            stream.Seek(0, SeekOrigin.Begin)
+            stream.Seek(0, IO.SeekOrigin.Begin)
             Await stream.CopyToAsync(result)
         End Using
         Return result

@@ -1,2 +1,2 @@
-MainPackage=C:\Users\Simone\Dropbox\VisualStudio Projects\XtfViewer\XtfViewer_UWP10\bin\x64\Release\Upload\XtfViewer_UWP10_2.2.0.0_x64.appx
-SymbolPackage=C:\Users\Simone\Dropbox\VisualStudio Projects\XtfViewer\XtfViewer_UWP10\AppPackages\XtfViewer_UWP10_2.2.0.0\XtfViewer_UWP10_2.2.0.0_x64.appxsym
+MainPackage=C:\Users\Simone\Dropbox\VisualStudio Projects\XtfViewer\XtfViewer_UWP10\bin\x64\Release\Upload\XtfViewer_UWP10_3.3.0.0_x64.appx
+SymbolPackage=C:\Users\Simone\Dropbox\VisualStudio Projects\XtfViewer\XtfViewer_UWP10\AppPackages\XtfViewer_UWP10_3.3.0.0\XtfViewer_UWP10_3.3.0.0_x64.appxsym

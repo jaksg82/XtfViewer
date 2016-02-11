@@ -60,7 +60,7 @@
     </Page.BottomAppBar>
 
 
-    <Grid x:Name="LayoutRoot">
+    <Grid x:Name="LayoutRoot" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
         <Grid.ChildrenTransitions>
             <TransitionCollection>
@@ -90,7 +90,7 @@
             <ComboBox x:Name="ContentSelector" HorizontalAlignment="Stretch" Margin="10,0" VerticalAlignment="Top"
 				IsRightTapEnabled="False" IsHoldingEnabled="False" IsDoubleTapEnabled="False" />
 
-            <ProgressRing x:Name="ProgAnim" Grid.Row="1" Background="{ThemeResource ProgressBarBackgroundThemeBrush}"
+            <ProgressRing x:Name="ProgAnim" Grid.Row="1" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
 				Foreground="{ThemeResource ProgressBarIndeterminateForegroundThemeBrush}" Visibility="Collapsed"
                 Width="{ThemeResource AppBarThemeMinHeight}" Height="{ThemeResource AppBarThemeMinHeight}" />
 

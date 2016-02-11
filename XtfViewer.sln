@@ -9,7 +9,7 @@ Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "XtfViewer_Phone8", "XtfView
 		{26B9BCEA-2033-43EC-8B12-90DF6492097C} = {26B9BCEA-2033-43EC-8B12-90DF6492097C}
 	EndProjectSection
 EndProject
-Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "XtfViewerDataModel", "XtfViewer_CommonAssets\XtfViewerDataModel.vbproj", "{412F846C-145E-4E4C-89FF-958895344337}"
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "XtfViewerDataModel", "XtfViewerDataModel\XtfViewerDataModel.vbproj", "{412F846C-145E-4E4C-89FF-958895344337}"
 	ProjectSection(ProjectDependencies) = postProject
 		{26B9BCEA-2033-43EC-8B12-90DF6492097C} = {26B9BCEA-2033-43EC-8B12-90DF6492097C}
 	EndProjectSection

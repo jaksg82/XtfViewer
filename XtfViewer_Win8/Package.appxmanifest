@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Package xmlns="http://schemas.microsoft.com/appx/2010/manifest" xmlns:m2="http://schemas.microsoft.com/appx/2013/manifest">
-  <Identity Name="54515SimoneGiacomoni.XtfViewer" Publisher="CN=CDF328CE-D36E-41AD-B084-27073BB76BD9" Version="1.50.0.0" />
+  <Identity Name="54515SimoneGiacomoni.XtfViewer" Publisher="CN=CDF328CE-D36E-41AD-B084-27073BB76BD9" Version="2.3.0.2" />
   <Properties>
     <DisplayName>Xtf Viewer</DisplayName>
     <PublisherDisplayName>Simone Giacomoni</PublisherDisplayName>
