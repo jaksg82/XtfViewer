@@ -11,7 +11,7 @@ Actually the situation is:
 
 jakxtflib --> the base class that convert the bytes in to objects.
 
-XtfViewer_CommonAssets --> this is the core library that handle the reading of the files and then format the results for the UI.
+XtfViewerDataModel --> this is the core library that handle the reading of the files and then format the results for the UI.
 
 XtfViewerAppCommons --> this contain some code that are shared between the different UIs.
 
